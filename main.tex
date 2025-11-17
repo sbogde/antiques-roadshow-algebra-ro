@@ -1,14 +1,68 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+% main.tex — Romanian original
+\documentclass[12pt,a4paper]{book}
 
-\title{antiques-roadshow-algebra-ro}
+% Encoding and language
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[romanian]{babel}
+
+% Maths and layout
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=3cm}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Theorem environments (adjust later if needed) ----------
+\theoremstyle{plain}
+\newtheorem{theorem}{Teoremă}[chapter]
+\newtheorem{lemma}[theorem]{Lemă}
+\newtheorem{proposition}[theorem]{Propoziţie}
+\newtheorem{corollary}[theorem]{Corolar}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definiţie}
+\newtheorem{example}[theorem]{Exemplu}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Observaţie}
+
+% ---------- Title page (fill in the real title later) ----------
+\title{Dimensiunea Coireductibilă a Inelelor și Modulelor \\[0.5em]
+  \large Universitatea din Bucureşti}
 \author{Sorin Bogde}
-\date{November 2025}
+\date{1999}
 
 \begin{document}
 
+\frontmatter
 \maketitle
+\tableofcontents
 
-\section{Introduction}
+% \chapter*{Prefaţă}
+% Aici vom introduce eventual un text de prefatare,
+% după ce terminăm transcrierea originalului.
+
+\mainmatter
+
+\chapter{Introducere}
+Acesta este un text provizoriu pentru capitolul de introducere.
+Conţinutul real va fi transcris din teza originală din 1999,
+pagină cu pagină.
+
+% Capitolele următoare vor fi completate pe măsură ce avansăm.
+% Exemplu:
+% \chapter{Titlul capitolului 1}
+% ...
+
+\backmatter
+
+% BIBLIOGRAFIE
+% Când vom recrea lista de referinţe, putem folosi fie
+% \begin{thebibliography}{99} ... \end{thebibliography}
+% fie un fişier .bib separat.
+% \bibliographystyle{plain}
+% \bibliography{bibliography}
 
 \end{document}
