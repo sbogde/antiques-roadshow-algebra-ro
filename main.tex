@@ -17,25 +17,19 @@
 \usepackage[hidelinks]{hyperref}
 
 % ---------- Theorem environments (adjust later if needed) ----------
-% \theoremstyle{plain}
-% \newtheorem{theorem}{Teoremă}[chapter]
-% \newtheorem{lemma}[theorem]{Lemă}
-% \newtheorem{proposition}[theorem]{Propoziţie}
-% \newtheorem{corollary}[theorem]{Corolar}
-
-% \theoremstyle{definition}
-% \newtheorem{definition}[theorem]{Definiţie}
-% \newtheorem{example}[theorem]{Exemplu}
-
-% \theoremstyle{remark}
-% \newtheorem{remark}[theorem]{Observaţie}
-
-\newtheorem{theorem}{Teoremă}[section]   % [section] not [chapter]
+\theoremstyle{plain}
+\newtheorem{theorem}{Teoremă}[section]
 \newtheorem{lemma}[theorem]{Lemă}
 \newtheorem{proposition}[theorem]{Propoziţie}
 \newtheorem{corollary}[theorem]{Corolar}
+
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definiţie}
+\newtheorem{example}[theorem]{Exemplu}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Observaţie}
+
 
 
 % ---------- Title page (fill in the real title later) ----------
@@ -154,6 +148,121 @@ Dacă \(M = \bigoplus_{i\in I} M_i\), atunci
 Fie \(R\) un inel. Atunci \(\soc(R_R)\) este un ideal bilateral al lui \(R\).
 \end{proposition}
 
+
+
+\section{Module noetheriene (artiniene) şi inele noetheriene (artiniene)}
+
+\begin{definition}
+Fie \(R\) un inel şi \(M\) un \(R\)-modul drept. Spunem că \(M\) satisface
+\emph{condiţia maximală} (resp. \emph{minimală}) dacă orice mulţime nevidă de
+submodule ale lui \(M\), ordonată prin incluziune, admite un element maximal
+(resp. minimal).
+
+Spunem că \(M\) satisface \emph{condiţia lanţurilor ascendente} (resp.
+\emph{descendente}) dacă orice şir (lanţ) ascendent de submodule ale lui \(M\)
+\[
+  M_1 \subseteq M_2 \subseteq \cdots \subseteq M_i \subseteq \cdots
+\]
+(resp. orice şir descendent
+\[
+  M_1 \supseteq M_2 \supseteq \cdots \supseteq M_i \supseteq \cdots
+\])
+este staţionar, adică există \(n \ge 1\) astfel încât
+\(M_n = M_{n+1} = \cdots\).
+\end{definition}
+
+\begin{proposition}
+Fie \(M\) un \(R\)-modul. Următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item \(M\) satisface condiţia maximală (minimală);
+  \item \(M\) satisface condiţia lanţurilor ascendente (descendente).
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}
+Un \(R\)-modul \(M\) se numeşte \emph{noetherian} (resp. \emph{artinian}) dacă
+satisface condiţia maximală (resp. minimală). Inelul \(R\) se numeşte
+noetherian (resp. artinian) la dreapta dacă \(R_R\) este noetherian
+(resp. artinian).
+\end{definition}
+
+\begin{example}
+\leavevmode
+\begin{enumerate}
+  \item \(\mathbb{Z}\) este inel noetherian dar nu este artinian.
+  \item Orice grup finit este \(\mathbb{Z}\)-modul noetherian şi artinian.
+  \item Orice inel finit este noetherian şi artinian.
+  \item \(\mathbb{Z}[X_1,X_2,\ldots,X_n,\ldots]\) nu este nici noetherian,
+        nici artinian:
+        \[
+          (X_1) \subsetneq (X_1,X_2) \subsetneq \cdots \subsetneq
+          (X_1,\ldots,X_n) \subsetneq \cdots
+        \]
+        \[
+          (X_1) \supsetneq (X_1^2) \supsetneq \cdots \supsetneq
+          (X_1^k) \supsetneq \cdots
+        \]
+  \item \(\mathbb{Z}_{p^\infty}\) este \(\mathbb{Z}\)-modul artinian dar nu
+        este noetherian.
+\end{enumerate}
+\end{example}
+
+\begin{proposition}
+Fie \(N, P\) două submodule ale lui \(M\) astfel încât \(M = N + P\).
+Atunci \(M\) este noetherian (artinian) dacă şi numai dacă \(N\) şi \(P\) sunt
+noetheriene (artiniene).
+\end{proposition}
+
+\begin{proposition}
+Pentru un \(R\)-modul \(M\) următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item \(M\) este noetherian;
+  \item orice submodul al lui \(M\) este finit generat.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Pentru un \(R\)-modul \(M\) următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item \(M\) este artinian;
+  \item oricare ar fi familia \((X_i)_{i\in I}\) de submodule ale lui \(M\),
+        există \(J \subseteq I\), \(J\) finită, astfel încât
+        \[
+          \bigcap_{i\in I} X_i = \bigcap_{j\in J} X_j.
+        \]
+\end{enumerate}
+\end{proposition}
+
+\section{Module de lungime finită}
+
+\begin{definition}
+Fie \(M\) un \(R\)-modul drept nenul. Se numeşte \emph{şir de compoziţie} sau
+\emph{şir Jordan--Hölder} al lui \(M\) un lanţ finit strict ascendent de
+submodule
+\[
+  0 = X_0 \subset X_1 \subset \cdots \subset X_n = M
+\]
+astfel încât \(X_{i+1}/X_i\) este modul simplu pentru \(0 \le i \le n-1\).
+Numărul \(n\) se numeşte \emph{lungimea şirului}, iar modulele
+\(X_{i+1}/X_i\) se numesc \emph{factorii şirului}.
+\end{definition}
+
+\begin{proposition}
+Fie \(M\) un \(R\)-modul. Următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item \(M\) are un şir de compoziţie;
+  \item \(M\) este noetherian şi artinian.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Fie
+\[
+  0 \longrightarrow M' \longrightarrow M \longrightarrow M'' \longrightarrow 0
+\]
+un şir exact de \(R\)-module drepte. Atunci \(M\) admite un şir de compoziţie
+dacă şi numai dacă \(M'\) şi \(M''\) admit un şir de compoziţie.
+\end{proposition}
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
 % Exemplu:
