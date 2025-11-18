@@ -8,6 +8,8 @@
 
 % Maths and layout
 \usepackage{amsmath,amssymb,amsthm}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\soc}{soc}
 \usepackage{geometry}
 \geometry{margin=3cm}
 \usepackage{graphicx}
@@ -15,24 +17,33 @@
 \usepackage[hidelinks]{hyperref}
 
 % ---------- Theorem environments (adjust later if needed) ----------
-\theoremstyle{plain}
-\newtheorem{theorem}{Teoremă}[chapter]
+% \theoremstyle{plain}
+% \newtheorem{theorem}{Teoremă}[chapter]
+% \newtheorem{lemma}[theorem]{Lemă}
+% \newtheorem{proposition}[theorem]{Propoziţie}
+% \newtheorem{corollary}[theorem]{Corolar}
+
+% \theoremstyle{definition}
+% \newtheorem{definition}[theorem]{Definiţie}
+% \newtheorem{example}[theorem]{Exemplu}
+
+% \theoremstyle{remark}
+% \newtheorem{remark}[theorem]{Observaţie}
+
+\newtheorem{theorem}{Teoremă}[section]   % [section] not [chapter]
 \newtheorem{lemma}[theorem]{Lemă}
 \newtheorem{proposition}[theorem]{Propoziţie}
 \newtheorem{corollary}[theorem]{Corolar}
-
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definiţie}
-\newtheorem{example}[theorem]{Exemplu}
 
-\theoremstyle{remark}
-\newtheorem{remark}[theorem]{Observaţie}
 
 % ---------- Title page (fill in the real title later) ----------
-\title{Dimensiunea Coireductibilă a Inelelor și Modulelor \\[0.5em]
-  \large Universitatea din Bucureşti}
-\author{Sorin Bogde}
-\date{1999}
+\title{DIMENSIUNEA COIREDUCTIBILĂ A INELELOR ŞI MODULELOR}
+\author{Coordonator ştiinţific: Prof. Dr. Tiberiu Dumitrescu\\[0.5em]
+Student: Sorin Bogde}
+\date{Universitatea Bucureşti, Facultatea de Matematică\\[0.5em] 1999}
+
 
 \begin{document}
 
@@ -46,10 +57,103 @@
 
 \mainmatter
 
-\chapter{Introducere}
-Acesta este un text provizoriu pentru capitolul de introducere.
-Conţinutul real va fi transcris din teza originală din 1999,
-pagină cu pagină.
+\setcounter{chapter}{-1}
+\chapter{Generalităţi}
+
+\section{Module semisimple}
+
+\begin{definition}
+Un \(R\)-modul nenul \(S\) se numeşte \emph{simplu} dacă singurele sale submodule sunt
+\(0\) şi \(S\).
+\end{definition}
+
+\begin{proposition}
+Fie \(S\) un \(R\)-modul. Următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item \(S\) este modul simplu.
+  \item Pentru orice element nenul \(x\in S\) avem \(S = xR\).
+  \item \(S \simeq R/I\), unde \(I\) este un ideal drept maximal.
+\end{enumerate}
+\end{proposition}
+
+\begin{lemma}[Schur]
+Fie \(S\) şi \(S'\) două \(R\)-module simple şi \(f\colon S \to S'\) un morfism de \(R\)-module.
+Atunci \(f = 0\) sau \(f\) este izomorfism. În particular \(\End_R(S)\) este corp.
+\end{lemma}
+
+\begin{definition}
+Fie \(M\) un \(R\)-modul şi \((S_i)_{i\in I}\) mulţimea submodulelor simple ale lui \(M\).
+Dacă \(M = \sum_{i\in I} S_i\), atunci \(M\) se numeşte \emph{semisimplu}.
+\end{definition}
+
+\begin{proposition}
+Fie \(M\) un \(R\)-modul semisimplu şi \(N\) un submodul al său.
+Atunci există o submulţime \(J \subseteq I\) astfel încât:
+\begin{enumerate}
+  \item familia \((S_j)_{j\in J}\) este independentă;
+  \item \(M = N \oplus \bigl(\bigoplus_{j\in J} S_j\bigr)\).
+\end{enumerate}
+\end{proposition}
+
+\begin{corollary}
+Cu notaţiile de mai sus, pentru modulul semisimplu \(M\) există \(J \subseteq I\) astfel încât
+familia \((S_j)_{j\in J}\) este independentă şi
+\[
+  M = \bigoplus_{i\in I} M_i.
+\]
+\end{corollary}
+
+\begin{corollary}
+Dacă \(M\) este un \(R\)-modul semisimplu şi \(N\) un submodul al său, atunci \(N\) şi
+\(M/N\) sunt semisimple.
+\end{corollary}
+
+\begin{corollary}
+O sumă directă de module semisimple este modul semisimplu.
+\end{corollary}
+
+\begin{theorem}
+Fie \(M\) un \(R\)-modul. Următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item \(M\) este semisimplu;
+  \item \(M\) este izomorf cu o sumă directă de module simple;
+  \item orice submodul al său este sumand direct în \(M\);
+  \item orice şir exact
+  \[
+    0 \longrightarrow M' \xrightarrow{\,f\,} M \xrightarrow{\,g\,} M'' \longrightarrow 0
+  \]
+  este scindabil.
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+Suma submodulelor simple ale lui \(M\) se numeşte \emph{soclul} lui \(M\) şi se notează
+\(\soc(M)\). Dacă \(M\) nu conţine nici un submodul simplu atunci punem \(\soc(M) = 0\).
+\end{definition}
+
+\begin{proposition}
+Fie \(M\) şi \(N\) două \(R\)-module şi \(f\colon M \to N\) un morfism.
+Atunci \(f(\soc(M)) \subseteq \soc(N)\).
+\end{proposition}
+
+\begin{proposition}
+Fie \(M\) un \(R\)-modul şi \(N\) un submodul al său. Atunci
+\[
+  \soc(N) = \soc(M) \cap N.
+\]
+\end{proposition}
+
+\begin{proposition}
+Dacă \(M = \bigoplus_{i\in I} M_i\), atunci
+\[
+  \soc(M) = \bigoplus_{i\in I} \soc(M_i).
+\]
+\end{proposition}
+
+\begin{proposition}
+Fie \(R\) un inel. Atunci \(\soc(R_R)\) este un ideal bilateral al lui \(R\).
+\end{proposition}
+
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
 % Exemplu:
