@@ -329,9 +329,10 @@ Atunci
 \end{corollary}
 
 \section{Radicalul Jacobson}
+\subsection*{Radicalul Jacobson al unui modul}
 
-\medskip
-\noindent\textbf{Radicalul Jacobson al unui modul.}
+% \medskip
+% \noindent\textbf{Radicalul Jacobson al unui modul.}
 
 \begin{definition}
 Fie \(M\) un \(R\)-modul. Intersecţia tuturor submodulelor maximale ale
@@ -383,6 +384,106 @@ Atunci
   = \bigcap \{\,L \le M \mid L \text{ este submodul superfluu}\,\}.
 \]
 \end{proposition}
+
+\begin{proposition}[Lema lui Nakayama]
+Fie \(M\) un \(R\)-modul finit generat şi \(N\) un submodul al său.
+Dacă \(N + \Rad(M) = M\), atunci \(N = M\). (Adică \(\Rad(M)\) este
+cel mai mare submodul superfluu al lui \(M\).)
+\end{proposition}
+
+\subsection*{Radicalul Jacobson al unui inel}
+
+Fie \(R\) un inel. Considerăm idealul stâng
+\(\Rad({}_R R)\) ca intersecţie a idealelor stângi maximale ale lui \(R\)
+şi \(\Rad(R_R)\) ca intersecţie a idealelor drepte maximale ale lui \(R\).
+
+\begin{proposition}
+\leavevmode
+\begin{enumerate}
+  \item \(\Rad(R_R)\) este un ideal bilateral.
+  \item \(\Rad(R_R) = \{\,r \in R \mid 1-ar \in U(R)\ \text{pentru orice } a \in R\,\}\).
+  \item \(\Rad(R_R) = \Rad({}_R R)\).
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}
+Idealul bilateral \(\Rad(R_R) = \Rad({}_R R)\) se numeşte
+\emph{radicalul Jacobson} al inelului \(R\) şi se notează \(\Rad(R)\).
+\end{definition}
+
+\begin{proposition}
+\leavevmode
+\begin{enumerate}
+  \item Dacă \(J\) este un ideal stâng (resp.\ drept sau bilateral) cu
+        proprietatea că \(1-x\) este inversabil pentru orice \(x \in J\),
+        atunci \(J \subseteq \Rad(R)\).
+  \item Dacă \(J\) este un nilideal stâng (resp.\ drept sau bilateral),
+        atunci \(J \subseteq \Rad(R)\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Fie \(\varphi : R \to S\) un morfism surjectiv de inele.
+Atunci \(\varphi(\Rad(R)) \subseteq \Rad(S)\). Dacă \(\ker(\varphi)
+\subseteq \Rad(R)\), atunci \(\varphi(\Rad(R)) = \Rad(S)\).
+\end{proposition}
+
+\begin{proposition}
+Dacă \((R_i)_{i\in I}\) este o familie de inele, atunci
+\[
+  \Rad\Bigl(\prod_{i\in I} R_i\Bigr) = \prod_{i\in I} \Rad(R_i).
+\]
+\end{proposition}
+
+\begin{proposition}
+Fie \(M\) un \(R\)-modul. Atunci \(M\,\Rad(R) \subseteq \Rad(M)\).
+\end{proposition}
+
+\begin{theorem}
+Dacă \(R\) este un inel artinian, atunci \(\Rad(R)\) este nilpotent.
+\end{theorem}
+
+\section{Inele semisimple}
+
+\begin{theorem}
+Pentru un inel \(R\) următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item orice \(R\)-modul drept nenul este semisimplu;
+  \item \(R\) este \(R\)-modul drept semisimplu;
+  \item \(R\) este artinian şi \(\Rad(R)=0\).
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+Un inel \(R\) care satisface una din condiţiile de mai sus se numeşte
+\emph{inel semisimplu}.
+\end{definition}
+
+\begin{proposition}
+Fie \(R\) un inel semisimplu şi \(M\) un \(R\)-modul nenul.
+Următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item \(M\) este de lungime finită;
+  \item \(M\) este noetherian;
+  \item \(M\) este artinian.
+\end{enumerate}
+\end{proposition}
+
+\begin{theorem}
+Fie \(R\) un inel artinian la dreapta şi \(M\) un \(R\)-modul nenul.
+Următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item \(M\) este de lungime finită;
+  \item \(M\) este noetherian;
+  \item \(M\) este artinian.
+\end{enumerate}
+\end{theorem}
+
+\begin{corollary}[Hopkins]
+Un inel artinian la dreapta (respectiv la stânga) este noetherian la
+dreapta (respectiv la stânga).
+\end{corollary}
+
 
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
