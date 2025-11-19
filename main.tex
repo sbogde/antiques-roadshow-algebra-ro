@@ -10,6 +10,8 @@
 \usepackage{amsmath,amssymb,amsthm}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\soc}{soc}
+\DeclareMathOperator{\Rad}{Rad}
+
 \usepackage{geometry}
 \geometry{margin=3cm}
 \usepackage{graphicx}
@@ -263,6 +265,125 @@ Fie
 un şir exact de \(R\)-module drepte. Atunci \(M\) admite un şir de compoziţie
 dacă şi numai dacă \(M'\) şi \(M''\) admit un şir de compoziţie.
 \end{proposition}
+
+Dacă
+\[
+  0 = M_0 \subseteq M_1 \subseteq \cdots \subseteq M_n = M,\qquad
+  0 = N_0 \subseteq N_1 \subseteq \cdots \subseteq N_p = M
+\]
+sunt două şiruri de compoziţie ale lui \(M\), vom spune că ele sunt
+\emph{echivalente} dacă \(n=p\) şi există o bijecţie
+\(\sigma : \{0,\ldots,n-1\} \to \{0,\ldots,n-1\}\) astfel încât
+\[
+  M_{i+1}/M_i \cong M_{\sigma(i)+1}/M_{\sigma(i)}
+  \quad (0 \le i \le n-1).
+\]
+
+\begin{theorem}[Jordan--Hölder]
+Dacă un \(R\)-modul \(M\) are două şiruri de compoziţie
+\[
+  0 = M_0 \subseteq M_1 \subseteq \cdots \subseteq M_n = M,\qquad
+  0 = N_0 \subseteq N_1 \subseteq \cdots \subseteq N_p = M,
+\]
+atunci aceste două şiruri sunt echivalente.
+\end{theorem}
+
+\begin{definition}
+Un \(R\)-modul \(M\) care admite un şir de compoziţie se numeşte
+\emph{modul de lungime finită}. Lungimea şirurilor de compoziţie se
+numeşte \emph{lungimea} lui \(M\) şi se notează \(l(M)\). Dacă \(M\)
+nu admite nici un şir de com\-po\-zi\-ţie, atunci spunem că \(M\) este
+\emph{de lungime infinită} şi scriem \(l(M)=\infty\).
+\end{definition}
+
+\begin{proposition}
+Fie
+\[
+  0 \longrightarrow M' \longrightarrow M \longrightarrow M'' \longrightarrow 0
+\]
+un şir exact de \(R\)-module de lungime finită. Atunci
+\[
+  l(M) = l(M') + l(M'').
+\]
+\end{proposition}
+
+\begin{corollary}
+Fie \(M\) un \(R\)-modul de lungime finită şi \(N,L\) două submodule ale
+sale. Atunci:
+\begin{enumerate}
+  \item \(l(M) = l(N) + l(M/N)\);
+  \item \(l(N+L) + l(N\cap L) = l(N) + l(L)\).
+\end{enumerate}
+\end{corollary}
+
+\begin{corollary}
+Fie \(M\) un \(R\)-modul de lungime finită şi \(M_1,M_2,\ldots,M_n\)
+submodule ale sale astfel încât
+\[
+  M = M_1 \oplus M_2 \oplus \cdots \oplus M_n.
+\]
+Atunci
+\[
+  l(M) = \sum_{i=1}^{n} l(M_i).
+\]
+\end{corollary}
+
+\section{Radicalul Jacobson}
+
+\medskip
+\noindent\textbf{Radicalul Jacobson al unui modul.}
+
+\begin{definition}
+Fie \(M\) un \(R\)-modul. Intersecţia tuturor submodulelor maximale ale
+lui \(M\) se numeşte \emph{radicalul Jacobson} al modulului \(M\) şi se
+notează \(\Rad(M)\). Dacă \(M\) nu are nici un submodul maximal, atunci
+prin convenţie punem \(\Rad(M)=M\).
+\end{definition}
+
+\begin{remark}
+Dacă \(M\) este un \(R\)-modul finit generat, atunci \(\Rad(M)\ne M\).
+\end{remark}
+
+\begin{proposition}
+Fie \(M\) un \(R\)-modul. Atunci
+\[
+  \Rad(M)
+  = \bigcap_{\substack{f : M \to S\\ S\ \text{simplu}}} \ker(f)
+  = \bigcap_{\substack{f : M \to X\\ X\ \text{semisimplu}}} \ker(f).
+\]
+\end{proposition}
+
+\begin{proposition}
+Fie \(f : M \to N\) un morfism de \(R\)-module. Atunci
+\(f(\Rad(M)) \subseteq \Rad(N)\). Dacă, în plus, \(f\) este epimorfism şi
+\(\ker(f) \subseteq \Rad(M)\), atunci \(f(\Rad(M)) = \Rad(N)\).
+\end{proposition}
+
+\begin{corollary}
+Pentru orice \(R\)-modul \(M\) are loc egalitatea
+\(\Rad(M/\Rad(M)) = 0\).
+\end{corollary}
+
+\begin{corollary}
+Dacă \(M\) este un \(R\)-modul semisimplu, atunci \(\Rad(M)=0\).
+\end{corollary}
+
+\begin{corollary}
+Dacă \(M = \bigoplus_{i\in I} M_i\), atunci
+\[
+  \Rad(M) = \bigoplus_{i\in I} \Rad(M_i).
+\]
+\end{corollary}
+
+\begin{proposition}
+Fie \(M\) un \(R\)-modul astfel încât \(\Rad(M)\ne M\).
+Atunci
+\[
+  \Rad(M)
+  = \bigcap \{\,L \le M \mid L \text{ este submodul superfluu}\,\}.
+\]
+\end{proposition}
+
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
 % Exemplu:
