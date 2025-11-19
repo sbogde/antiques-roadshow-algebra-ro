@@ -11,6 +11,12 @@
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\soc}{soc}
 \DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Hom}{Hom}
+
+% notations for essential submodule as per https://en.wikipedia.org/wiki/Essential_extension
+\newcommand{\ess}{\trianglelefteq}  % Anderson–Fuller-style (default in text)
+\newcommand{\esse}{\subseteq_{\!e}}      % Lam-style
 
 \usepackage{geometry}
 \geometry{margin=3cm}
@@ -20,7 +26,8 @@
 
 % ---------- Theorem environments (adjust later if needed) ----------
 \theoremstyle{plain}
-\newtheorem{theorem}{Teoremă}[section]
+% \newtheorem{theorem}{Teoremă}[section] % [section] not [chapter]
+\newtheorem{theorem}{Teoremă}[chapter]
 \newtheorem{lemma}[theorem]{Lemă}
 \newtheorem{proposition}[theorem]{Propoziţie}
 \newtheorem{corollary}[theorem]{Corolar}
@@ -28,6 +35,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definiţie}
 \newtheorem{example}[theorem]{Exemplu}
+\newtheorem*{example*}{Exemplu}         % UNnumbered
 
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Observaţie}
@@ -485,6 +493,119 @@ dreapta (respectiv la stânga).
 \end{corollary}
 
 
+
+
+
+
+\chapter{Submodule esenţiale}
+
+\begin{definition}\label{def:submodul-esential}
+Fie \(M\) un \(R\)-modul drept. Un submodul \(N\) al lui \(M\) se numeşte
+\emph{esenţial} (sau spunem că \(M\) este o extensie esenţială a lui \(N\))
+dacă \(N \cap N' \neq 0\) pentru orice submodul nenul \(N'\) al lui \(M\).
+În acest caz vom folosi notaţia \(N \ess M_R\).
+
+Un monomorfism de \(R\)-module la dreapta \(f : M \to N\) se numeşte
+\emph{esenţial} dacă \(\operatorname{Im} f\) este submodul esenţial în
+\(N\) (adică \(\operatorname{Im} f \ess N_R\)).
+\end{definition}
+
+
+\begin{example*}
+\leavevmode
+\begin{enumerate}
+  \item \(n\mathbb{Z} \ess \mathbb{Z}_\mathbb{Z}\) pentru orice \(n \geq 1\).
+  \item Orice submodul al lui \(\mathbb{Z}_{p^\infty}\) este esenţial.
+\end{enumerate}
+\end{example*}
+
+  
+\begin{remark}
+Fie \(M\) un \(R\)-modul drept şi \(N\) un submodul al lui \(M\).
+Atunci \(N \ess M_R\) dacă şi numai dacă pentru orice \(x \in M\),
+\(x \neq 0\), există \(r \in R\) astfel încât \(xr \in N \setminus \{0\}\).
+\end{remark}
+
+\begin{proof}
+„\(\Rightarrow\)” Fie \(x \in M \setminus \{0\}\).
+Cum \(0 \neq xR \subseteq M_R\) şi \(N \ess M_R\), rezultă că
+\(xR \cap N \neq 0\), deci există \(xr \in xR \cap N \setminus \{0\}\).
+
+„\(\Leftarrow\)” Fie \(N' \leq M_R\), \(N' \neq 0\).
+Pentru \(x \in N' \setminus \{0\}\) există \(r \in R\) astfel încât
+\(xr \in N \setminus \{0\}\), deci \(N \cap N' \neq 0\).
+\end{proof}
+
+\begin{definition}
+Un monomorfism de \(R\)-module la dreapta \(f : N_R \to M_R\) se numeşte
+esenţial dacă \(\operatorname{Im} f \ess M_R\).
+Se observă imediat că dacă \(N\) este un submodul al lui \(M\) atunci
+incluziunea canonică \(i_N : N \to M\) este monomorfism esenţial
+dacă şi numai dacă \(N \ess M_R\).
+\end{definition}
+
+\begin{proposition}
+Un monomorfism \(f : N_R \to M_R\) este esenţial dacă şi numai dacă
+pentru orice \(R\)-modul drept \(M'\) şi orice \(g \in \Hom(M,M')\),
+faptul că \(g \circ f\) este monomorfism implică \(g\) monomorfism.
+\end{proposition}
+
+\begin{proof}
+„\(\Rightarrow\)” Fie \(g\) ca în enunţ astfel încât \(g \circ f\) este
+monomorfism. Presupunem \(g \neq 0\).
+Fie \(x \in \Ker g \cap \operatorname{Im} f \setminus \{0\}\).
+Există \(x' \in N\) astfel încât \(x = f(x')\) şi \(g(x) = 0\), de unde
+\(g(f(x')) = 0\). Cum \(g \circ f\) este monomorfism, rezultă \(x' = 0\) şi
+deci \(x = 0\), contradicţie.
+
+„\(\Leftarrow\)” Dacă \(f\) nu este monomorfism esenţial atunci există
+\(N' \leq M_R\), \(N' \neq 0\), astfel încât \(N' \cap \operatorname{Im} f = 0\).
+Considerăm proiecţia canonică \(\pi_{N'} : M \to M/N'\).
+Dacă \(x \in \Ker(\pi_{N'} \circ f)\), atunci \(f(x) \in N'\), deci \(f(x) = 0\),
+adică \(x = 0\). Obţinem astfel că \(\pi_{N'} \circ f\) este injectiv, de unde
+rezultă că \(\pi_{N'}\) este injectiv, ceea ce implică \(N' = 0\),
+contradicţie.
+\end{proof}
+
+\begin{corollary}
+Fie \(M\) un \(R\)-modul la dreapta şi \(N \leq M_R\).
+Atunci următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item \(N \ess M_R\);
+  \item incluziunea \(i_N : N \to M\) este monomorfism esenţial;
+  \item pentru orice \(f \in \Hom(M,M')\) cu \(M'\) \(R\)-modul arbitrar,
+        faptul că \(f \circ i_N\) este monomorfism implică \(f\) monomorfism.
+\end{enumerate}
+\end{corollary}
+
+\begin{proposition}
+Fie \(f : N_R \to M_R\) şi \(g : M_R \to P_R\) două monomorfisme.
+Atunci \(g \circ f\) este esenţial dacă şi numai dacă \(g\) şi \(f\) sunt
+esenţiale.
+\end{proposition}
+
+% urmează demonstraţia 1.6 pe pagina 12…
+
+
+
+
+
+
+
+\paragraph{Demonstraţie.}
+„\(\Leftarrow\)” Fie \(z \in P \setminus \{0\}\). Cum \(g\) este
+esenţial, există \(r \in R\) astfel încât
+\(zr \in \operatorname{Im} g \setminus \{0\}\). Există
+\(y \in M \setminus \{0\}\) astfel încât \(zr = g(y)\).
+
+
+% Cum \(f\) este esenţial, există \(s \in R\) astfel încât
+% \(ys \in \operatorname{Im} f \setminus \{0\}\). Atunci
+% \[
+%   zrs = g(ys) \in \operatorname{Im}(g \circ f) \setminus \{0\},
+% \]
+% deci \(\operatorname{Im}(g \circ f) \ess P_R\).
+% (Sensul „\(\Rightarrow\)” se va stabili ulterior.)
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
 % Exemplu:
