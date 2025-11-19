@@ -551,6 +551,7 @@ faptul că \(g \circ f\) este monomorfism implică \(g\) monomorfism.
 \end{proposition}
 
 \begin{proof}
+\mbox{}\\[0.5em]
 „\(\Rightarrow\)” Fie \(g\) ca în enunţ astfel încât \(g \circ f\) este
 monomorfism. Presupunem \(g \neq 0\).
 Fie \(x \in \Ker g \cap \operatorname{Im} f \setminus \{0\}\).
@@ -587,25 +588,151 @@ esenţiale.
 % urmează demonstraţia 1.6 pe pagina 12…
 
 
-
-
-
-
-
-\paragraph{Demonstraţie.}
+\begin{proof}
+\mbox{}\\[0.1em]
 „\(\Leftarrow\)” Fie \(z \in P \setminus \{0\}\). Cum \(g\) este
 esenţial, există \(r \in R\) astfel încât
 \(zr \in \operatorname{Im} g \setminus \{0\}\). Există
 \(y \in M \setminus \{0\}\) astfel încât \(zr = g(y)\).
 
 
-% Cum \(f\) este esenţial, există \(s \in R\) astfel încât
-% \(ys \in \operatorname{Im} f \setminus \{0\}\). Atunci
-% \[
-%   zrs = g(ys) \in \operatorname{Im}(g \circ f) \setminus \{0\},
-% \]
-% deci \(\operatorname{Im}(g \circ f) \ess P_R\).
-% (Sensul „\(\Rightarrow\)” se va stabili ulterior.)
+Cum \(f\) este esenţial, există \(r' \in R\) astfel încât \(y r' \in \mathrm{Im}\, f \setminus \{0\}\).
+De aici există \(x \in N \setminus \{0\}\) astfel încât \(y r' = f(x)\).
+Dar \(zr' = g(y) r' = g(y r') = g(f(x))\). Dacă \(zr' = 0\), atunci \(g(f(x)) = 0\)
+şi deci \(x = 0\), contradicţie. Obţinem astfel că \(zr' \in \mathrm{Im}(g \circ f)\)
+şi că \(zr' \neq 0\), ceea ce ne arată că \(g \circ f\) este esenţial.
+
+„\(\Rightarrow\)” Fie \(y \in M \setminus \{0\}\).
+Cum \(g\) este monomorfism, \(g(y) \neq 0\).
+Deci există \(r \in R\) astfel încât \(g(yr) \in \mathrm{Im}\, g \setminus \{0\}\)
+şi \(g(yr) \neq 0\). Rezultă că există \(x \in N \setminus \{0\}\) astfel încât
+\(g(yr) = g(f(x))\) de unde \(yr = f(x) \in \mathrm{Im}\, f\), ceea ce ne arată
+că \(f\) este monomorfism esenţial.
+
+Dacă \(z \in P \setminus \{0\}\) există \(r \in R\) astfel încât \(zr \in \mathrm{Im}(g \circ f)\)
+şi \(zr \neq 0\). Cum \(\mathrm{Im}(g \circ f) \subseteq \mathrm{Im} g\),
+rezultă că \(zr \in \mathrm{Im} g\), şi deci \(g\) este monomorfism esenţial.
+
+\end{proof}
+
+
+\begin{proposition}
+Fie \(M\) un \(R\)-modul la dreapta şi \(L_1, L_2, \ldots, L_n\) submodule ale lui \(M\).
+Atunci:
+
+1) \(\displaystyle \bigcap_{i=1}^n L_i\) este esenţial în \(M\) dacă şi numai dacă
+\(L_i\) este esenţial în \(M\) pentru orice \(i = 1,\ldots,n\).
+
+2) Dacă \(L_1 \subseteq L_2\) şi \(L_1\) este esenţial în \(M\), atunci
+\(L_2\) este esenţial în \(M\).
+
+Demonstraţia este evidentă.
+\end{proposition}
+
+
+
+\begin{proposition}
+Fie \(K\) şi \(L\) două submodule ale lui \(M\).
+1) Dacă \(K \subseteq L \subseteq M\), atunci \(K \, \ess \, M\) dacă şi numai dacă
+\(K \, \ess \, L\) şi \(L \, \ess \, M\).
+
+2) Dacă \(h : K_R \to M_R\) este morfism de module şi \(L \, \ess \, M\),
+atunci \(h^{-1}(L) \, \ess \, K\).
+
+3) Dacă \(L_1, L_2 \leq M_R\) şi \(K_1 \, \ess \, L_1\), \(K_2 \, \ess \, L_2\),
+atunci \(K_1 \cap K_2 \, \ess \, L_1 \cap L_2\).
+\end{proposition}
+
+\begin{proof}
+\mbox{}\\[0.1em]
+1) Se aplică 1.5 şi 1.6.
+
+2) Fie \(U\) submodul nenul al lui \(K\).
+(i) Dacă \(h(U) = 0\), atunci \(U \subseteq \ker h \subseteq h^{-1}(L)\),
+ceea ce implică \(U \cap h^{-1}(L) \neq 0\).
+(ii) Dacă \(h(U) \neq 0\), atunci \(h(U) \cap L \neq 0\) şi deci există
+\(u \in U\) astfel încât \(h(u) \in L\), \(h(u) \neq 0\), de unde
+\(u \in U \cap h^{-1}(L)\) şi \(u \neq 0\).
+Din (i) şi (ii) rezultă că \(h^{-1}(L) \, \ess \, K\).
+
+3) Dacă \(0 \neq X \leq L_1 \cap L_2\) atunci \(X \subseteq L_1\) ceea ce implică
+\(0 \neq X \cap K_1 \leq L_1\). Dar cum \(X \subseteq L_2\),
+rezultă \(0 \neq (X \cap K_1) \cap L_2 = X \cap (K_1 \cap K_2)\),
+şi deci \(K_1 \cap K_2 \, \ess \, L_1 \cap L_2\).
+\end{proof}
+
+
+\begin{proposition}
+Fie \((K_\lambda)_{\lambda \in \Lambda}\), \((L_\lambda)_{\lambda \in \Lambda}\)
+două familii de submodule ale lui \(M\).
+Dacă \((K_\lambda)_{\lambda \in \Lambda}\) este familie independentă în \(M\)
+şi \(K_\lambda \, \ess \, L_\lambda\) pentru orice \(\lambda \in \Lambda\),
+atunci \((L_\lambda)_{\lambda \in \Lambda}\) este familie independentă în \(M\)
+şi \((\oplus_{\lambda \in \Lambda} K_\lambda) \, \ess \,
+(\oplus_{\lambda \in \Lambda} L_\lambda)\).
+\end{proposition}
+
+\begin{proof}
+\mbox{}\\[0.5em]
+Fie \(K_1 \, \ess \, L_1\), \(K_2 \, \ess \, L_2\) astfel încât
+\(K_1 \cap K_2 = 0\). Din 1.8(3) rezultă că \(0 \, \ess \, L_1 \cap L_2\),
+adică \(L_1 \cap L_2 = 0\).
+
+Fie proiecţiile canonice
+\(\pi_1 : L_1 \oplus L_2 \to L_1\),
+\(\pi_2 : L_1 \oplus L_2 \to L_2\).
+Cum \(K_1 \, \ess \, L_1\), \(K_2 \, \ess \, L_2\) rezultă că
+
+\[
+\pi_1^{-1}(K_1)
+  = K_1 \oplus 0 \, \ess \, L_1 \oplus L_2,
+\]
+şi
+\[
+\pi_2^{-1}(K_2)
+  = 0 \oplus K_2 \, \ess \, L_1 \oplus L_2.
+\]
+
+Deci
+\[
+K_1 \oplus K_2
+  = (\pi_1^{-1}(K_1)) \cap (\pi_2^{-1}(K_2))
+  \, \ess \, L_1 \oplus L_2.
+\]
+
+Prin inducţie se obţine afirmaţia pentru mulţimi finite.
+În cazul general, fie \(0 \neq m \in \oplus_{\lambda \in \Lambda} L_\lambda\).
+Atunci există o mulţime finită \(\Lambda_0 \subseteq \Lambda\)
+cu \(m \in \oplus_{\lambda \in \Lambda_0} L_\lambda\).
+Cum \((\oplus_{\lambda \in \Lambda_0} K_\lambda) \, \ess \,
+(\oplus_{\lambda \in \Lambda_0} L_\lambda)\),
+există \(r \in R\) astfel încât
+\(rm \in (\oplus_{\lambda \in \Lambda_0} K_\lambda) \setminus \{0\}
+\subseteq (\oplus_{\lambda \in \Lambda} K_\lambda) \setminus \{0\}\).
+Rezultă că
+\((\oplus_{\lambda \in \Lambda} K_\lambda) \, \ess \,
+(\oplus_{\lambda \in \Lambda} L_\lambda)\).
+\end{proof}
+
+
+\begin{proposition}
+Fie \(N\) un submodul al lui \(M\).
+Atunci există un submodul \(Q\), \(N \subseteq Q \subseteq M\),
+astfel încât \(Q\) este o extensie esenţială maximală a lui \(N\)
+conţinută în \(M\).
+\end{proposition}
+
+\begin{proof}
+\mbox{}\\[0.5em]
+Fie \(\mathfrak{S} = \{ L \leq M ; \; N \subseteq L \subseteq M, \; N \, \ulcorner \, L \}\),
+\(\mathfrak{S}\) cu relaţia de ordine incluziunea.
+\(\mathfrak{S} \neq \varnothing\) deoarece \(N \in \mathfrak{S}\).
+
+
+
+
+
+\end{proof}
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
 % Exemplu:
