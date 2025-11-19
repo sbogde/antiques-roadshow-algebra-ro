@@ -727,12 +727,139 @@ conţinută în \(M\).
 Fie \(\mathfrak{S} = \{ L \leq M ; \; N \subseteq L \subseteq M, \; N \, \ulcorner \, L \}\),
 \(\mathfrak{S}\) cu relaţia de ordine incluziunea.
 \(\mathfrak{S} \neq \varnothing\) deoarece \(N \in \mathfrak{S}\).
+Fie \((L_\lambda)_{\lambda \in \Lambda}\) o familie total ordonată de elemente din
+\(\mathfrak{S}\) şi
+\[
+L := \bigcup_{\lambda \in \Lambda} L_\lambda.
+\]
+Evident \(L \leq M_R\).
 
-
-
-
-
+Fie \(x \in L \setminus \{0\}\).
+Atunci există \(\lambda_0 \in \Lambda\) cu \(x \in L_{\lambda_0}\).
+Cum \(N\) este esenţial în \(L_{\lambda_0}\), rezultă că există \(r \in R\) astfel
+încât \(xr \in N\) şi \(xr \neq 0\), de unde obţinem că \(L\) este extensie esenţială
+a lui \(N\).
+Deci \(\mathfrak{S}\) este inductivă şi, conform lemei lui Zorn, \(\mathfrak{S}\) admite
+un element maximal \(Q\) care satisface condiţiile cerute.
 \end{proof}
+
+\begin{definition}
+Fie \(M\) un \(R\)-modul la dreapta şi \(N \leq M_R\).
+Un submodul \(K \leq M_R\) se numeşte \emph{complement} al lui \(N\) în \(M\)
+dacă \(K\) este un submodul maximal al lui \(M\) cu proprietatea că
+\(K \cap N = 0\).
+Un submodul \(K \leq M_R\) se numeşte \emph{submodul complement al lui \(M\)}
+dacă există \(N \leq M_R\) astfel încât \(K\) este complement al lui \(N\) în \(M\).
+\end{definition}
+
+\begin{remark}
+Mulţimea
+\[
+\widetilde{\mathfrak{S}}
+  = \{\,L \leq M_R \mid N \cap L = 0\,\}
+\]
+este inductivă şi, aplicând lema lui Zorn, rezultă că există un complement al lui
+\(N\) în \(M\).
+În particular, \(0\) şi \(M\) sunt submodule complement ale lui \(M\).
+\end{remark}
+
+\begin{proposition}
+Fie \(M_R\), \(N \leq M_R\) şi \(K \leq M_R\), \(K\) un complement al lui \(N\) în \(M\).
+Există un complement \(Q\) al lui \(K\) în \(M\) astfel încât \(N \subseteq Q\).
+Mai mult, \(Q\) este o extensie esenţială maximală a lui \(N\) în \(M\).
+\end{proposition}
+
+\begin{proof}
+Se observă uşor că mulţimea
+\[
+\widetilde{\mathfrak{S}}
+  = \{\,L \leq M_R \mid K \cap L = 0,\; N \subseteq L\,\}
+\]
+este inductivă şi lema lui Zorn asigură existenţa lui \(Q\).
+
+Fie \(L\) un submodul nenul al lui \(Q\) astfel încât \(L \cap N = 0\).
+Fie \(K_1 = L + K\).
+Este clar că \(K \subseteq K_1\).
+Dacă \(x \in N \cap (L + K)\), atunci \(x = y + z\) cu \(y \in L\), \(z \in K\).
+Dar \(z = x - y \in Q\).
+Cum \(Q \cap K = 0\), rezultă \(z = 0\) şi deci \(x = y\).
+Din egalitatea \(L \cap N = 0\) deducem \(x = y = 0\) şi deci
+\(N \cap (L + K) = 0\), ceea ce contrazice faptul că \(K\) este un complement
+al lui \(N\) în \(M\).
+Obţinem \(L \cap N \neq 0\) pentru orice \(0 \neq L \leq Q\), de unde
+\(Q\) este extensie esenţială a lui \(N\).
+
+Presupunem că există \(Q' \leq M_R\) cu \(N \ess Q'\) şi \(Q \subsetneq Q'\).
+Cum \(Q'\) este complement al lui \(K\), rezultă \(Q' \cap K \neq 0\).
+Dar \(N \cap (Q' \cap K) = 0\) şi
+\(0 \neq Q' \cap K \leq Q'\), contradicţie cu \(N \ess Q'\).
+Rezultă că \(Q\) este extensie esenţială maximală a lui \(N\) în \(M\).
+\end{proof}
+
+\begin{definition}
+Un submodul \(N\) al lui \(M_R\) se numeşte \emph{închis} dacă \(N\) nu are
+nicio extensie esenţială în \(M\) proprie (diferită de \(N\)).
+\end{definition}
+
+\begin{corollary}
+Fie \(M_R\) un \(R\)-modul.
+Submodulele complement ale lui \(M\) coincid cu submodulele închise ale lui \(M\).
+\end{corollary}
+
+\begin{proof}
+Din 1.13 rezultă imediat că orice submodul închis al lui \(M\) este un submodul
+complement al lui \(M\).
+
+Invers, fie \(K\) un submodul complement al lui \(M_R\).
+Rezultă că există \(N \leq M_R\) astfel încât \(K\) este un complement al lui \(N\)
+în \(M\).
+Presupunem că \(K\) are o extensie esenţială în \(M\) proprie, adică există
+\(K' \leq M_R\) cu \(K \ess K'\) şi \(K \subsetneq K'\).
+Atunci \(K' \cap N \neq 0\), din maximalitatea lui \(K\), iar cum \(K \ess K'\),
+rezultă că
+\[
+K \cap K' \cap N \neq 0,
+\]
+contradicţie.
+\end{proof}
+
+
+\begin{corollary}
+Fie \(N\) un submodul al lui \(M_R\).
+Dacă \(K\) este un complement al lui \(N\) în \(M\), atunci:
+\begin{enumerate}
+  \item \((N + K) \ess M_R\).
+  \item Morfismul canonic \(\pi_K \circ i_N : N \to M/K\) este monomorfism esenţial.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(1) Fie \(x \in M \setminus \{0\}\).
+Dacă \(x \notin K\), atunci \(K + Rx \neq K\) şi deci
+\(N \cap (K + Rx) \neq 0\).
+Fie \(y \in N \cap (K + Rx)\), \(y \neq 0\).
+Există \(z \in K\), \(r \in R\) cu \(y = z + rx\).
+Dacă \(rx = 0\), atunci \(y = z\) şi cum \(N \cap K = 0\) rezultă \(y = 0\),
+contradicţie.
+Deci \(rx \neq 0\) şi, cum \(rx = y - z\), obţinem \(rx \in N + K\), ceea ce
+ne arată că \((N + K) \ess M_R\).
+
+(2) \(\mathrm{Im}(\pi_K \circ i_N) = (N + K)/K\).
+Fie \(L/K\) un submodul nenul al lui \(M/K\).
+Atunci
+\[
+\frac{N + K}{K} \cap \frac{L}{K}
+   = \frac{(N + K) \cap L}{K}
+   = \frac{N \cap L + K}{K}.
+\]
+Cum \(K\) este un complement al lui \(N\), rezultă că \(N \cap L \neq 0\) şi deci
+\[
+\frac{N \cap L + K}{K} \neq 0,
+\]
+ceea ce ne arată că \(\pi_K \circ i_N\) este monomorfism esenţial.
+\end{proof}
+
+
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
 % Exemplu:
