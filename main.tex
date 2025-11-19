@@ -5,6 +5,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[romanian]{babel}
+\usepackage{tikz-cd}
 
 % Maths and layout
 \usepackage{amsmath,amssymb,amsthm}
@@ -26,8 +27,8 @@
 
 % ---------- Theorem environments (adjust later if needed) ----------
 \theoremstyle{plain}
-% \newtheorem{theorem}{Teoremă}[section] % [section] not [chapter]
-\newtheorem{theorem}{Teoremă}[chapter]
+\newtheorem{theorem}{Teoremă}[section] % [section] not [chapter]
+% \newtheorem{theorem}{Teoremă}[chapter]
 \newtheorem{lemma}[theorem]{Lemă}
 \newtheorem{proposition}[theorem]{Propoziţie}
 \newtheorem{corollary}[theorem]{Corolar}
@@ -857,6 +858,136 @@ Cum \(K\) este un complement al lui \(N\), rezultă că \(N \cap L \neq 0\) şi 
 \frac{N \cap L + K}{K} \neq 0,
 \]
 ceea ce ne arată că \(\pi_K \circ i_N\) este monomorfism esenţial.
+\end{proof}
+
+
+
+
+\chapter{Module injective}
+\section{Module injective}
+
+Fie \(Q\) şi \(M\) două \(R\)-module drepte.
+\(Q\) se numeşte \emph{\(M\)-injectiv} dacă pentru orice monomorfism
+\(u : M' \to M\) şi orice morfism \(f : M' \to Q\), există
+\(g : M \to Q\) astfel încât \(g \circ u = f\), adică diagrama
+
+\[
+\begin{tikzcd}
+0 \arrow[r] & M' \arrow[r,"u"] \arrow[d,"f"'] & M \arrow[dl,dashed,"g"] \\
+            & Q &
+\end{tikzcd}
+\]
+
+este comutativă.
+
+Această proprietate este echivalentă cu condiţia ca aplicaţia
+\[
+\Hom(u,Q) : \Hom(M,Q) \longrightarrow \Hom(M',Q)
+\]
+să fie surjectivă pentru orice monomorfism \(u : M' \to M\).
+Cum functorul \(\Hom(-,Q)\) este exact la stânga, rezultă că \(Q\) este
+\(M\)-injectiv dacă şi numai dacă \(\Hom(-,Q)\) este exact în raport cu orice
+şir exact de forma
+\[
+0 \longrightarrow M' \longrightarrow M \longrightarrow M'' \longrightarrow 0.
+\]
+
+\(R\)-modulul \(Q\) se numeşte \emph{quasi-injectiv} (sau \emph{self-injectiv})
+dacă este \(Q\)-injectiv.
+Dacă \(Q\) este \(M\)-injectiv pentru orice \(R\)-modul \(M\), atunci
+\(Q\) se numeşte \emph{injectiv}.
+
+2.1.1 Propoziţie
+
+\begin{proposition}
+Fie \(Q\) şi \(M\) două \(R\)-module.
+Următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item \(Q\) este \(M\)-injectiv.
+  \item Pentru orice submodul \(N\) al lui \(M\) şi orice morfism
+        \(f : N \to Q\), există \(g : M \to Q\) astfel încât
+        \(g_{\mid N} = f\).
+  \item Pentru orice submodul esenţial \(N\) al lui \(M\) şi orice morfism
+        \(f : N \to Q\), există \(g : M \to Q\) astfel încât
+        \(g_{\mid N} = f\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Implicaţiile \((1) \Rightarrow (2)\) şi \((2) \Rightarrow (3)\) sunt evidente.
+
+\medskip
+\noindent\((2) \Rightarrow (1)\).
+Fie \(M'_R\), \(0 \longrightarrow M' \xrightarrow{u} M\) şi
+\(f : M' \to Q\).
+Atunci \(u(M') \leq M\).
+Considerăm \(i : u(M') \to M\) injecţia canonică şi
+\(\bar{u} : M' \to u(M')\) izomorfismul indus de \(u\).
+Există \(g : M \to Q\) astfel încât \(g \circ i = f \circ \bar{u}^{-1}\).
+Atunci
+\[
+g \circ i \circ \bar{u} = f
+\quad\text{şi deci}\quad
+g \circ u = f.
+\]
+
+Diagrama corespunzătoare este
+\[
+\begin{tikzcd}
+0 \arrow[r] &
+M' \arrow[r,shift left=0.35ex,"\bar{u}"]
+   \arrow[dr,"f"'] &
+u(M') \arrow[r,hook,"i"] &
+M \arrow[dl,dashed,"g"] \\
+& & Q &
+\end{tikzcd}
+\]
+
+
+
+
+
+\noindent\((3) \Rightarrow (2)\).
+Fie \(N\) un submodul al lui \(M\) şi \(K\) un complement al lui \(N\) în \(M\).
+Atunci \((N \oplus K) \ess M\).
+Fie \(h : N \oplus K \to Q\), definit prin \(h(n+k) = f(n)\) pentru orice
+\(n \in N\), \(k \in K\).
+Cum \(N \cap K = 0\), aplicaţia \(h\) este bine definită.
+Există \(g : M \to Q\) astfel încât \(g_{\mid N \oplus K} = h\) şi deci
+\(g_{\mid N} = h_{\mid N} = f\).
+
+Aceasta se poate reprezenta prin diagrama
+\[
+\begin{tikzcd}
+0 \arrow[r] &
+N \arrow[r,hook] \arrow[dr,"f"'] &
+N \oplus K \arrow[r,hook] \arrow[d,"h"] &
+M \arrow[dl,dashed,"g"] \\
+& & Q &
+\end{tikzcd}
+\]
+\end{proof}
+
+
+\begin{proposition}
+Fie \((M_\alpha)_{\alpha \in \Lambda}\) o familie de \(R\)-module şi
+\(M\) un \(R\)-modul.
+Atunci \(\displaystyle \prod_{\alpha \in \Lambda} M_\alpha\) este
+\(M\)-injectiv dacă şi numai dacă \(M_\alpha\) este \(M\)-injectiv
+pentru orice \(\alpha \in \Lambda\).
+\end{proposition}
+
+\begin{proof}
+Fie \(N\) un submodul al lui \(M\).
+Notăm \(P = \displaystyle\prod_{\alpha \in \Lambda} M_\alpha\) şi
+\(\pi_\alpha : P \to M_\alpha\) proiecţiile canonice, pentru orice
+\(\alpha \in \Lambda\).
+
+\medskip
+\noindent\("\Leftarrow"\) Considerând un morfism \(f : N \to P\), avem că
+morfismele \(\pi_\alpha \circ f : N \to M_\alpha\) pot fi extinse la
+\(g_\alpha : M \to M_\alpha\).
+Există \(g : M \to P\) astfel încât \(g_{\mid N} = f\).
 \end{proof}
 
 
