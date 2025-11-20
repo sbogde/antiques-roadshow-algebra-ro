@@ -1226,7 +1226,8 @@ rezultă că \(g\!\mid_{I} = f\).
         \(y \in Q\) şi orice \(a \in R\) nendivizor al lui zero, există
         \(x \in Q\) astfel încât \(ax = y\).
         Se verifică uşor că orice modul factor al unui modul divizibil este divizibil.
-   \item Un domeniu de integritate comutativ se numeste PID-inel dacă orice ideal al său este principal.
+   \item Un domeniu de integritate comutativ se numeşte \emph{PID-inel}
+        dacă orice ideal al său este principal.
 \end{enumerate}
 \end{definition}
 
@@ -1337,9 +1338,209 @@ Prin urmare \(\Hom_A(M,N)\) este un bimodul \(S\)-stâng şi \(T\)-drept.
 \end{proof}
 
 
-\begin{proposition}
+\begin{proposition}[Eckmann–Schopf]
 Fie \(Q\) un grup abelian divizibil. Atunci \(R\)-modulul stâng \(\Hom_\mathbb{Z}(R,Q)\) este injectiv.
 \end{proposition}
+
+\begin{proof}
+Conform lemei precedente, $\Hom_{\mathbb{Z}}(R,Q)$ are o structură de
+$R$-modul stâng dată de operaţia
+\[
+(r \cdot f)(a) = f(ar), \qquad \forall a,r \in R,\ f \in \Hom_{\mathbb{Z}}(R,Q).
+\]
+Fie $I$ un ideal stâng al lui $R$ şi $h : I \to \Hom_{\mathbb{Z}}(R,Q)$
+un morfism de $R$-module stângi. Atunci aplicaţia
+\[
+\gamma : \mathbb{Z}I \longrightarrow \mathbb{Z}Q, \qquad
+\gamma(a) = h(a)(1)
+\]
+defineşte un morfism de $\mathbb{Z}$–module.
+Cum $Q$ este $\mathbb{Z}$–injectiv, există
+$\widetilde{\gamma} : \mathbb{Z}R \to \mathbb{Z}Q$ astfel încât
+$\widetilde{\gamma}_{\mid I} = \gamma$.
+Pentru $a \in I$ şi $r \in R$ avem
+\[
+(a \cdot \widetilde{\gamma})(r)
+  = \widetilde{\gamma}(ra)
+  = h(ra)(1)
+  = (r \cdot h(a))(1)
+  = h(a)(r),
+\]
+deci $h(a) = a \cdot \widetilde{\gamma}$ pentru orice $a \in I$.
+Conform criteriului lui Baer, $\Hom_{\mathbb{Z}}(R,Q)$ este
+$R$–modul stâng injectiv.
+\end{proof}
+
+
+\begin{proposition}
+Orice $R$-modul stâng $M$ poate fi scufundat într-un
+$R$-modul stâng injectiv.
+\end{proposition}
+
+\begin{proof}
+Există un $\mathbb{Z}$-modul liber de forma $\mathbb{Z}^{(A)}$ şi
+un $\mathbb{Z}$-morfism surjectiv $f : \mathbb{Z}^{(A)} \to M$.
+Atunci
+\[
+\mathbb{Z}M \cong \mathbb{Z}^{(A)} / \ker f
+  \subseteq \mathbb{Q}^{(A)} / \ker f,
+\]
+şi deci există un grup abelian divizibil $G$ astfel încât
+$\mathbb{Z}M \subseteq \mathbb{Z}G$.
+Aplicând functorul $\Hom_{\mathbb{Z}}(R,-)$ obţinem un monomorfism
+\[
+{}_R M \cong \Hom_{\mathbb{Z}}(R,M)
+   \hookrightarrow \Hom_{\mathbb{Z}}(R,G).
+\]
+Cum $G$ este divizibil, din Propoziţia~2.1.13 rezultă că
+$\Hom_{\mathbb{Z}}(R,G)$ este $R$-modul stâng injectiv.
+Prin urmare $M$ se scufundă într-un $R$-modul stâng injectiv.
+\end{proof}
+
+
+\begin{proposition}
+Fie $Q$ un $R$-modul. Atunci $Q$ este injectiv dacă şi numai dacă
+orice şir exact de forma
+\[
+0 \longrightarrow Q \xrightarrow{f} M \xrightarrow{g} M' \longrightarrow 0
+\]
+este scindat.
+\end{proposition}
+
+\begin{proof}
+„$\Rightarrow$”\;
+Presupunem că $Q$ este injectiv.
+Din exactitatea şirului avem că $f$ este monomorfism.
+Prin injectivitatea lui $Q$ există $h : M \to Q$ astfel încât
+$h f = \mathrm{id}_Q$, ceea ce arată că şirul este scindat.
+
+„$\Leftarrow$”\;
+Folosind Propoziţia~2.1.14, există un $R$-modul injectiv $Q'$ şi
+un monomorfism $i : Q \to Q'$.
+Avem un şir exact
+\[
+0 \longrightarrow Q \xrightarrow{i} Q' \longrightarrow Q'/i(Q) \longrightarrow 0.
+\]
+Prin ipoteză acest şir este scindat, deci $Q$ este sumand direct în $Q'$.
+Un sumand direct al unui modul injectiv este injectiv, aşadar $Q$ este injectiv.
+\end{proof}
+
+
+
+\section{Anvelope injective}
+
+\begin{definition}
+Fie $M$ un $R$-modul.
+O pereche $(E,i)$ se numeşte \emph{anvelopă injectivă} a lui $M$ dacă
+$E$ este modul injectiv şi $i : M \to E$ este un monomorfism esenţial.
+\end{definition}
+
+\begin{proposition}
+Fie $Q$ un $R$-modul injectiv.
+Atunci orice submodul complement al lui $Q$ este sumand direct în $Q$.
+\end{proposition}
+
+\begin{proof}
+Fie $K$ un submodul al lui $Q$ şi $N$ un complement al lui $K$ în $Q$,
+adică $K \cap N = 0$ şi $K+N$ este submodul esenţial în $Q$.
+Atunci $(K+N)/N \cong Q/N$.
+Definim $g : (K+N)/N \to Q$ prin
+\[
+g((x+y)+N) = x, \qquad x \in K,\ y \in N.
+\]
+Cum $K \cap N = 0$, aplicaţia $g$ este bine definită şi este monomorfism.
+Injectivitatea lui $Q$ asigură existenţa unui morfism
+$h : Q/N \to Q$ astfel încât $h_{\mid (K+N)/N} = g$.
+Deoarece $(K+N)/N \cong Q/N$ şi $g$ este monomorfism, şi $h$ este monomorfism.
+Avem $K = \operatorname{Im} g = h((K+N)/N) \subseteq h(Q/N)$.
+Cum $K$ este submodul închis, rezultă $K = h(Q/N)$.
+Din $h$ monomorfism obţinem $(K+N)/N = Q/N$, deci $K+N = Q$.
+Prin urmare $K$ este un sumand direct în $Q$.
+\end{proof}
+
+\begin{theorem}[Eckmann--Schopf]
+Orice $R$-modul $M$ are o anvelopă injectivă unică până la un izomorfism.
+\end{theorem}
+
+\begin{proof}
+Din Propoziţia~2.1.14 există un $R$-modul injectiv $Q$ astfel încât
+$M \leq Q$.
+Fie $E$ o extensie esenţială maximală a lui $M$ în $Q$.
+Atunci $E$ este un submodul complement în $Q$, iar din propoziţia
+precedentă rezultă că $E$ este injectiv.
+Astfel $(E,i)$, cu $i : M \hookrightarrow E$ incluziunea, este o anvelopă
+injectivă a lui $M$.
+
+Pentru unicitate, fie $(E_1,i_1)$ şi $(E_2,i_2)$ două anvelope injective
+ale lui $M$.
+Cum $E_2$ este injectiv, există $f : E_1 \to E_2$ astfel încât
+$f i_1 = i_2$.
+Morfismul $i_2$ este monomorfism, iar $i_1$ este monomorfism esenţial,
+deci (folosind 1.4) rezultă că $f$ este monomorfism.
+Avem $E_1 \cong f(E_1)$ şi $E_2 = f(E_1) \oplus E_3$ pentru un anumit
+submodul $E_3$.
+Dar $i_2(M) \subseteq f(E_1)$, deci $i_2(M) \cap E_3 = 0$.
+Cum $i_2$ este monomorfism esenţial, rezultă $E_3 = 0$, deci
+$E_2 = f(E_1)$ şi $f$ este izomorfism.
+\end{proof}
+
+În practică vom considera un reprezentant al acestei clase pe care îl
+vom nota $E(M)$ astfel încât $M \ess E(M)$.
+
+\begin{proposition}
+Fie $M$ un $R$-modul şi $i : M \to Q$ un monomorfism cu $Q_R$ injectiv.
+Următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item $(Q,i)$ este o anvelopă injectivă a lui $M$;
+  \item pentru orice monomorfism $f : M \to Q'$ cu $Q'$ injectiv,
+        există un monomorfism $g : Q \to Q'$ astfel încât $g i = f$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$(1) \Rightarrow (2)$.
+Fie $f : M \to Q'$ un monomorfism cu $Q'$ injectiv.
+Prin injectivitatea lui $Q'$ există $u : Q \to Q'$ astfel încât
+$u i = f$.
+Cum $i$ este monomorfism esenţial şi $Q'$ este injectiv, imaginea
+$u(Q)$ este un complement al lui $f(M)$, iar din definiţia anvelopei
+injective rezultă că $u$ este monomorfism; punem $g=u$.
+
+$(2) \Rightarrow (1)$.
+Fie $(E(M),j)$ o anvelopă injectivă a lui $M$.
+Aplicând (2) la $f=j$ obţinem un monomorfism
+$g : Q \to E(M)$ cu $g i = j$.
+Cum $j$ este monomorfism esenţial, rezultă că şi $i$ este monomorfism
+esenţial, deci $(Q,i)$ este o anvelopă injectivă a lui $M$.
+\end{proof}
+
+\begin{proposition}
+Oricare ar fi $R$-modulele drepte $M_1,M_2,\dots,M_n$ avem
+\[
+E\!\left(\bigoplus_{i=1}^{n} M_i\right)
+  \cong \bigoplus_{i=1}^{n} E(M_i).
+\]
+\end{proposition}
+
+\begin{proof}
+Din 1.9, $\bigoplus_{i=1}^{n} E(M_i)$ este o extensie esenţială
+a lui $\bigoplus_{i=1}^{n} M_i$.
+Cum
+\[
+\bigoplus_{i=1}^{n} E(M_i) \cong \prod_{i=1}^{n} E(M_i),
+\]
+din 2.1.3 rezultă că $\bigoplus_{i=1}^{n} E(M_i)$ este injectiv.
+Prin unicitatea anvelopei injective obţinem
+\[
+E\!\left(\bigoplus_{i=1}^{n} M_i\right)
+  \cong \bigoplus_{i=1}^{n} E(M_i).
+\]
+\end{proof}
+
+
+
+
+
 
 
 
