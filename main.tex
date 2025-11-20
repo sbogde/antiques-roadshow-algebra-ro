@@ -1007,17 +1007,6 @@ cum \(P\) este \(M\)-injectiv, există \(g : M \to P\) care îl extinde pe
 Atunci \(\varepsilon_\alpha : M_\alpha \to P\) îl extinde pe \(f\) şi deci
 \(M_\alpha\) este \(M\)-injectiv.
 
-% "\pi_\alpha g"
-
-% \[
-% \begin{tikzcd}
-% 0 \arrow[r] &
-% N \arrow[r] \arrow[d,"f"'] &
-% M  \arrow[ddl,bend left=15,"g"] \\
-% & M_\alpha \arrow[d,"\varepsilon_\alpha"'] & \\
-% & P &
-% \end{tikzcd}
-% \]
 
 \[
 \begin{tikzcd}
@@ -1061,27 +1050,10 @@ Fie \(Q\) un \(R\)-modul.
 
 
 \begin{proof}
-% \[
-% \begin{tikzcd}
-% 0 \arrow[r] &
-% N \arrow[r] \arrow[d,"\varphi"'] &
-% M' \arrow[r,"f"] \arrow[d,"\psi"] &
-% M \\
-% & Q
-% \end{tikzcd}
-% \]
-
-
-% \[
-% \begin{tikzcd}
-% 0 \arrow[r] &
-% N \arrow[r,hook] \arrow[dr,"\varphi"'] &
-% M' \arrow[r, "f"] \arrow[d,""] &
-% M \arrow[dl,"\psi"] \\
-% & & Q &
-% \end{tikzcd}
-% \]
-
+Pentru a arăta că \(Q\) este \(M'\)-injectiv, considerăm \(N\) un submodul al lui
+\(M'\) și \(\varphi : N \rightarrow Q\) un morfism de \(R\)-module. Cum \(Q\) este
+\(M\)-injectiv, există \(\phi : M \to Q\) astfel încât \(g \circ f\!\mid_{N} = \varphi\)
+și deci \(\psi \circ f : M' \to Q\) este un morfism care îl extinde pe \(\varphi\).
 \[
 \begin{tikzcd}
 0 \arrow[r] &
@@ -1092,9 +1064,14 @@ M \arrow[dll,bend left=35,"\psi"'] \\
 \end{tikzcd}
 \]
 
+Fie \(h : L \to M''\) un monomorfism. Putem presupune, fără a restrânge generalitatea,
+că \(M' \le M\) și \(M'' = M / M'\). Cum \(L \cong h(L) \le M''\), există
+\(P \le M\), \(M' \subseteq P\) astfel încât \(h(L) = P / M'\) și deci \(L \cong P/M'\).
+Obținem diagrama comutativă:
 
 \[
 \begin{tikzcd}
+& & 0 \arrow[d] & 0 \arrow[d] & \\
 0 \arrow[r] &
 M' \arrow[r] \arrow[d] &
 P \arrow[r] \arrow[d] &
@@ -1108,8 +1085,30 @@ M'' \arrow[r] &
 \end{tikzcd}
 \]
 
+Cum \(Q\) este \(M\)-injectiv, aplicând functorul \(\Hom(-,Q)\) obținem diagrama comutativă:
 
+
+\[
+\begin{tikzcd}
+0 \arrow[r] &
+\Hom(M'',Q) \arrow[r] \arrow[d,"h^{*}"'] &
+\Hom(M,Q) \arrow[r] \arrow[d] &
+\Hom(M',Q) \arrow[r] \arrow[d,equal] &
+0 \\
+0 \arrow[r] &
+\Hom(L,Q) \arrow[r] &
+\Hom(P,Q) \arrow[r] \arrow[d] &
+\Hom(M',Q) &
+\\
+& & 0 & &
+\end{tikzcd}
+\]
+
+
+Obținem că \(h^{*} = \Hom(h,Q)\) este epimorfism, ceea ce arată că
+\(Q\) este \(M''\)-injectiv.
 \end{proof}
+
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
 % Exemplu:
