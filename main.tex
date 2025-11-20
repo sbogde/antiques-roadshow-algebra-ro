@@ -1540,9 +1540,133 @@ E\!\left(\bigoplus_{i=1}^{n} M_i\right)
 
 
 
+% --- Romanian: Teorema 2.2.6 + demonstraţie ---
+
+\begin{theorem}
+Fie \(Q\) şi \(M\) două \(R\)-module. Atunci \(Q\) este \(M\)-injectiv dacă şi numai dacă
+\(f(M) \leq Q\), oricare ar fi \(f \in \Hom(E(M),E(Q))\).
+\end{theorem}
+
+\begin{proof}
+„\(\Rightarrow\)” Fie \(f \in \Hom(E(M),E(Q))\) şi notăm
+\[
+K := \{\,m \in M \mid f(m) \in Q\,\}.
+\]
+Cum \(Q\) este \(M\)-injectiv, există un morfism \(\bar{f} : M \to Q\) astfel încât
+\(\bar{f}\!\mid_{K} = f\!\mid_{K}\).
+Arătăm că
+\[
+Q \cap (\bar{f}-f)(M) = 0.
+\]
+Fie \(x \in Q\) şi \(m \in M\) cu \(x = (\bar{f}-f)(m)\).
+Atunci
+\[
+f(m) = \bar{f}(m) - x \in Q,
+\]
+deci \(m \in K\).
+Urmează că
+\[
+x = \bar{f}(m) - f(m) = f(m) - f(m) = 0.
+\]
+Prin urmare \(Q \cap (\bar{f}-f)(M) = 0\) şi, cum \(Q \ess E(Q)\), rezultă că
+\((\bar{f}-f)(M) = 0\).
+Aşadar \(f(M) = \bar{f}(M) \leq Q\).
+
+„\(\Leftarrow\)” Întrucât \(E(Q)\) este injectiv, este suficient să considerăm
+\(f \in \Hom(M,E(Q))\).
+Fie \(N\) un submodul al lui \(M\) şi \(g : N \to Q\) un morfism de \(R\)-module.
+Cum \(E(Q)\) este injectiv, există un morfism \(\tilde{g} : M \to E(Q)\) astfel încât
+\(\tilde{g}\!\mid_{N} = i \circ g\), unde \(i : Q \to E(Q)\) este injecţia canonică.
+Prin ipoteză avem \(\tilde{g}(M) \leq Q\), astfel încât, identificând \(\tilde{g}\) cu
+corestricţia sa la \(Q\), obţinem un morfism \(h : M \to Q\) cu
+\(h\!\mid_{N} = g\).
+Prin urmare \(Q\) este \(M\)-injectiv.
+\end{proof}
 
 
+% --- Romanian: Corolar 2.2.7 ---
 
+\begin{corollary}
+Un \(R\)-modul \(Q\) este quasi-injectiv dacă şi numai dacă
+\(f(Q) \leq Q\) pentru orice \(f \in \End(E(Q))\).
+\end{corollary}
+
+
+% --- Romanian: Teorema 2.2.8 (Matlis–Bass) + demonstraţie ---
+
+\begin{theorem}[Matlis--Bass]
+Fie \(R\) un inel. Atunci \(R\) este noetherian la dreapta dacă şi numai dacă,
+pentru orice \(R\)-modul simplu \(S_i\) (\(i \geq 1\)),
+\[
+Q := \bigoplus_{i=1}^{\infty} E(S_i)
+\]
+este un \(R\)-modul injectiv.
+\end{theorem}
+
+\begin{proof}
+„\(\Rightarrow\)” Fie \(L\) un ideal drept al lui \(R\),
+\[
+Q = \bigoplus_{i=1}^{\infty} E(S_i)
+\]
+şi \(f : L \to Q\) un morfism de \(R\)-module.
+Există elemente \(a_1,\dots,a_n \in L\) astfel încât
+\[
+L = a_1 R + a_2 R + \cdots + a_n R.
+\]
+În mod evident există \(m \geq 1\) astfel încât
+\(f(a_k) \in \bigoplus_{j=1}^{m} E(S_j)\) pentru orice \(k = 1,\dots,n\),
+deci
+\[
+\Im f \subseteq \bigoplus_{j=1}^{m} E(S_j).
+\]
+Cum \(\bigoplus_{j=1}^{m} E(S_j)\) este injectiv, există
+\(g : R \to \bigoplus_{j=1}^{m} E(S_j)\) astfel încât \(g\!\mid_{L} = f\).
+Notăm \(\bar{f} = i \circ g\), unde
+\(i : \bigoplus_{j=1}^{m} E(S_j) \to Q\) este injecţia canonică.
+Atunci \(\bar{f}\!\mid_{L} = f\), deci \(Q\) este injectiv.
+
+„\(\Leftarrow\)” Presupunem că \(R\) nu este noetherian la dreapta.
+Atunci există un şir strict ascendent de ideale la dreapta, finit generate:
+\[
+L_1 \subsetneq L_2 \subsetneq \cdots \subsetneq L_n \subsetneq \cdots .
+\]
+Din lema lui Krull rezultă că, pentru orice \(n \geq 1\), există un submodul
+maximal \(M_n \subsetneq L_n\) astfel încât
+\[
+L_{n-1} \subseteq M_n \quad \text{pentru orice } n \geq 2.
+\]
+Fie
+\[
+L := \bigcup_{k=1}^{\infty} L_k, \qquad
+\pi_k : L_k \longrightarrow L_k/M_k
+\]
+proiecţiile canonice şi
+\[
+E_k := E(L_k/M_k) \quad \text{pentru orice } k \geq 1.
+\]
+Atunci
+\[
+E := \bigoplus_{k=1}^{\infty} E_k
+\]
+este injectiv şi
+\[
+f : L \longrightarrow E, \qquad
+f(a) = \sum_{k=1}^{\infty} \pi_k(a)
+\]
+este bine definit.
+Există un element
+\(x \in E_1 \oplus \cdots \oplus E_n\) astfel încât
+\(f(a) = x a\) pentru orice \(a \in L\).
+Rezultă că \(\pi_k(a) = 0\) pentru orice \(k \geq n+1\),
+adică \(a \in M_k\) pentru orice \(k \geq n+1\).
+Prin urmare
+\[
+L \subseteq M_{n+1} \subsetneq L_{n+1} \subseteq M_{n+2} \subsetneq L_{n+2}
+\subseteq \cdots \subseteq L,
+\]
+contradicţie.
+Obţinem că \(R\) este noetherian la dreapta.
+\end{proof}
 
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
