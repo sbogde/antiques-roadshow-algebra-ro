@@ -988,9 +988,128 @@ Notăm \(P = \displaystyle\prod_{\alpha \in \Lambda} M_\alpha\) şi
 morfismele \(\pi_\alpha \circ f : N \to M_\alpha\) pot fi extinse la
 \(g_\alpha : M \to M_\alpha\).
 Există \(g : M \to P\) astfel încât \(g_{\mid N} = f\).
+
+\[
+\begin{tikzcd}
+0 \arrow[r] &
+N \arrow[r,""] \arrow[d,"f"'] &
+M \arrow[dr,"g_\alpha"] \arrow[dl,"g"'] & \\
+& P \arrow[rr,"\pi_\alpha"] & & M_\alpha
+\end{tikzcd}
+\]
+
+
+\noindent\("\Rightarrow"\) Fie \(\forall \alpha \in \Lambda\) şi \(f : N \to M_\alpha\).
+Considerând incluziunea canonică
+\(\varepsilon_\alpha : M_\alpha \to P\),
+cum \(P\) este \(M\)-injectiv, există \(g : M \to P\) care îl extinde pe
+\(\varepsilon_\alpha \circ f : N \to P\).
+Atunci \(\varepsilon_\alpha : M_\alpha \to P\) îl extinde pe \(f\) şi deci
+\(M_\alpha\) este \(M\)-injectiv.
+
+% "\pi_\alpha g"
+
+% \[
+% \begin{tikzcd}
+% 0 \arrow[r] &
+% N \arrow[r] \arrow[d,"f"'] &
+% M  \arrow[ddl,bend left=15,"g"] \\
+% & M_\alpha \arrow[d,"\varepsilon_\alpha"'] & \\
+% & P &
+% \end{tikzcd}
+% \]
+
+\[
+\begin{tikzcd}
+0 \arrow[r] &
+N \arrow[r] \arrow[d,"f"'] &
+M \arrow[dddl,bend left=15,"g"'] \arrow[dddl,bend left=45,"\pi_\alpha g"] \\
+& M_\alpha \arrow[d,"\varepsilon_\alpha"'] & \\
+& P \arrow[d,"\pi_\alpha"'] & \\
+& M_\alpha &
+\end{tikzcd}
+\]
+
 \end{proof}
 
+\begin{corollary}
+\leavevmode
+\begin{enumerate}
+  \item Fie \((Q_\alpha)_{\alpha \in \Lambda}\) o familie de \(R\)-module.
+        Atunci \(\prod_{\alpha \in \Lambda} Q_\alpha\) este injectiv
+        dacă şi numai dacă \(Q_\alpha\) este injectiv pentru orice \(\alpha\in\Lambda\).
+  \item \(Q_1 \oplus Q_2\) este \(R\)-modul injectiv dacă şi numai dacă
+        \(Q_i\) este injectiv pentru \(i=1,2\).
+        În particular, un sumand direct al unui modul injectiv este injectiv.
+\end{enumerate}
+\end{corollary}
 
+\begin{proposition}
+Fie \(Q\) un \(R\)-modul.
+\begin{enumerate}
+  \item Dacă \(0 \to M' \xrightarrow{f} M \xrightarrow{g} M'' \to 0\) este
+        un şir exact de \(R\)-module şi \(Q\) este \(M\)-injectiv,
+        atunci \(Q\) este \(M'\)-injectiv şi \(M''\)-injectiv.
+  \item Dacă \((M_\alpha)_{\alpha \in \Lambda}\) este o familie de submodule ale lui \(M\)
+        astfel încât \(M = \sum_{\alpha\in\Lambda} M_\alpha\) şi
+        \(Q\) este \(M_\alpha\)-injectiv pentru orice \(\alpha\), atunci \(Q\) este \(M\)-injectiv.
+  \item Fie \((N_\alpha)_{\alpha\in\Lambda}\) o familie de \(R\)-module.
+        Atunci \(Q\) este \(\bigoplus_{\alpha\in\Lambda} N_\alpha\)-injectiv
+        dacă şi numai dacă \(Q\) este \(N_\alpha\)-injectiv pentru orice \(\alpha\in\Lambda\).
+\end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+% \[
+% \begin{tikzcd}
+% 0 \arrow[r] &
+% N \arrow[r] \arrow[d,"\varphi"'] &
+% M' \arrow[r,"f"] \arrow[d,"\psi"] &
+% M \\
+% & Q
+% \end{tikzcd}
+% \]
+
+
+% \[
+% \begin{tikzcd}
+% 0 \arrow[r] &
+% N \arrow[r,hook] \arrow[dr,"\varphi"'] &
+% M' \arrow[r, "f"] \arrow[d,""] &
+% M \arrow[dl,"\psi"] \\
+% & & Q &
+% \end{tikzcd}
+% \]
+
+\[
+\begin{tikzcd}
+0 \arrow[r] &
+N \arrow[r] \arrow[d,"\varphi"'] &
+M' \arrow[r,"f"] \arrow[dl] &
+M \arrow[dll,bend left=35,"\psi"'] \\
+& Q & &
+\end{tikzcd}
+\]
+
+
+\[
+\begin{tikzcd}
+0 \arrow[r] &
+M' \arrow[r] \arrow[d] &
+P \arrow[r] \arrow[d] &
+L \arrow[r] \arrow[d,"h"] &
+0 \\
+0 \arrow[r] &
+M' \arrow[r] &
+M \arrow[r] &
+M'' \arrow[r] &
+0
+\end{tikzcd}
+\]
+
+
+\end{proof}
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
 % Exemplu:
