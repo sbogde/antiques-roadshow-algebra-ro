@@ -1226,8 +1226,122 @@ rezultă că \(g\!\mid_{I} = f\).
         \(y \in Q\) şi orice \(a \in R\) nendivizor al lui zero, există
         \(x \in Q\) astfel încât \(ax = y\).
         Se verifică uşor că orice modul factor al unui modul divizibil este divizibil.
+   \item Un domeniu de integritate comutativ se numeste PID-inel dacă orice ideal al său este principal.
 \end{enumerate}
 \end{definition}
+
+
+\begin{proposition}
+\leavevmode
+\begin{enumerate}
+\item Orice modul injectiv este divizibil.
+\item Fie \(R\) un PID-inel.
+  \begin{enumerate}
+    \item[(i)] Dacă \(Q\) este un \(R\)-modul, atunci \(Q\) este injectiv dacă şi numai dacă este divizibil.
+    \item[(ii)] Dacă \(I\) este un ideal nenul al lui \(R\), atunci \(R/I\) este \(R\)-modul quasi-injectiv. 
+          În particular, \(\mathbb{Z}_n\) este \(\mathbb{Z}\)-modul quasi-injectiv, \(\forall n \ge 1\).
+  \end{enumerate}
+\end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+1) Fie \(Q\) un \(R\)-modul divizibil, \(y \in Q\) şi \(a \in R\) nendivizor al lui zero. Definim  
+\(f : aR \to Q\) prin \(f(ax) = yx\) pentru orice \(x \in R\).  
+Cum \(a\) este nendivizor al lui zero, \(f\) este bine definită.  
+Folosind criteriul lui Baer rezultă că există \(x \in Q\) astfel încât  
+\(f(\lambda) = x\lambda\), pentru orice \(\lambda \in I\).  
+Deci \(y = f(a) = f(a \cdot 1) = xa\).
+
+2) \((i)\) Implicaţia „\(\Rightarrow\)” este evidentă din (1).
+
+„\(\Leftarrow\)” Fie \(Q\) un \(R\)-modul divizibil şi \(I\) un ideal drept al lui \(R\).  
+Atunci există \(a \in R\) astfel încât \(I = aR\).  
+Considerăm \(f : I \to Q\) un morfism de \(R\)-module.  
+Există \(x \in Q\) astfel încât \(f(a) = xa\).  
+Atunci \(f(ar) = xar\) pentru orice \(r \in R\) şi deci, conform criteriului lui Baer,  
+\(Q\) este injectiv.
+
+(ii) Fie \(I = aR\) şi \(J = bR\) ideale nenule ale lui \(R\) astfel încât \(I \subseteq J\) şi  
+\(f : J/I \to R/I\) un morfism de \(R\)-module.  
+Există \(c \in R\) astfel încât \(a = bc\).  
+Dacă \(f(\bar{b}) = \hat{x} \in R/I\), atunci \(x \in I\) şi deci există \(a_1 \in R\) astfel încât  
+\(x = aa_1\).  
+Rezultă că \(x = ba_1\).  
+Definim \(g : R/I \to R/I\), \(g(\bar{r}) = \widehat{ar_1}\) pentru orice \(r \in R\).  
+Atunci \(g\) este morfism de \(R\)-module şi \(g(\bar{b}) = \hat{x}\),  
+deci \(g\!\mid_{J/I} = f\), ceea ce arată că \(R/I\) este quasi-injectiv.
+\end{proof}
+
+\begin{corollary}
+    Un grup abelian \(G\) este \(\mathbb{Z}\)-modul injectiv dacă şi numai dacă \(G\) este divizibil.
+\end{corollary}
+
+\begin{corollary}
+\leavevmode
+\begin{enumerate}
+\item \(\mathbb{Q}\) şi \(\mathbb{Z}_{p^\infty}\) sunt \(\mathbb{Z}\)-module injective.
+\item Orice sumă directă de \(\mathbb{Z}\)-module injective este \(\mathbb{Z}\)-modul injectiv.
+\item Orice grup factor al unui \(\mathbb{Z}\)-modul injectiv este injectiv.
+\end{enumerate}
+\end{corollary}
+
+
+% \subsection*{2.1.12 Lemă}
+\begin{lemma}
+Fie inelele \(A, S, T\) şi bimodulele \({}_S M_A\), \({}_A N_T\).  
+Atunci \(\Hom_A(M,N)\) are o structură de bimodul \(S\)-stâng şi \(T\)-drept prin operaţiile:
+\[
+(s \cdot f)(x) = f(xs), \qquad (f \cdot t)(x) = f(x)t,
+\]
+unde \(s \in S\), \(t \in T\), \(x \in M\), \(f \in \Hom_A(M,N)\).
+\end{lemma}
+
+
+\begin{proof}
+    
+Fie \(a,b \in A\) şi \(x,y \in M\). Atunci:
+\[
+(s \cdot f)(ax + by)
+= f((ax+by)s)
+= f(a(xs)) + f(b(ys)) = a f(xs) + b f(ys)
+= a (s \cdot f)(x) + b (s \cdot f)(y),
+\]
+şi deci \(s \cdot f \in \Hom_A(M,N)\).  
+Analog \(f \cdot t \in \Hom_A(M,N)\).
+
+Pentru \(s,s' \in S\) şi \(f,g \in \Hom_A(M,N)\):
+\[
+(s \cdot (f+g))(x) = (f+g)(xs) = f(xs) + g(xs) = (s\cdot f)(x) + (s \cdot g)(x).
+\tag{1}
+\]
+
+\[
+((s+s') \cdot f)(x) = f(x(s+s')) = f(xs + xs') = f(xs) + f(xs') = (s\cdot f)(x) + (s' \cdot f)(x).
+\tag{2}
+\]
+
+\[
+((ss') \cdot f)(x) = f(x(ss')) = f((xs)s') = (s' \cdot f)(xs) = (s \cdot (s' \cdot f))(x).
+\tag{3}
+\]
+
+\[
+(1_S \cdot f)(x) = f(x1_S) = f(x).
+\tag{4}
+\]
+
+Din (1)–(4) avem că \(\Hom_A(M,N)\) este \(S\)-modul stâng.  
+La fel se arată că este şi \(T\)-modul drept.  
+Prin urmare \(\Hom_A(M,N)\) este un bimodul \(S\)-stâng şi \(T\)-drept.
+\end{proof}
+
+
+\begin{proposition}
+Fie \(Q\) un grup abelian divizibil. Atunci \(R\)-modulul stâng \(\Hom_\mathbb{Z}(R,Q)\) este injectiv.
+\end{proposition}
+
+
 
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
