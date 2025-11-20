@@ -1107,7 +1107,127 @@ Cum \(Q\) este \(M\)-injectiv, aplicând functorul \(\Hom(-,Q)\) obținem diagra
 
 Obținem că \(h^{*} = \Hom(h,Q)\) este epimorfism, ceea ce arată că
 \(Q\) este \(M''\)-injectiv.
+
+
+\medskip
+
+2) Fie \(N\) un submodul al lui \(M\) şi \(f : N \to Q\) un morfism de \(R\)-module.
+Considerăm mulţimea
+\[
+\mathfrak{S} = \{(L,h) \mid N \le L \le M,\; h : L \to Q,\; h\!\mid_{N} = f\}.
+\]
+Cum \((N,f) \in \mathfrak{S}\), avem \(\mathfrak{S} \ne \varnothing\).
+Definim pe \(\mathfrak{S}\) relaţia de ordine
+\((L_1,h_1) \preccurlyeq (L_2,h_2)\) dacă şi numai dacă
+\(L_1 \le L_2\) şi \(h_2\!\mid_{L_1} = h_1\).
+Se observă că \(\mathfrak{S}\) este inductivă şi, din lema lui Zorn,
+rezultă că există \((L_0,g_0)\) element maximal al lui \(\mathfrak{S}\).
+Pentru a arăta că \(L_0 = M\) este suficient să arătăm că
+\(M_\alpha \le L_0\) pentru orice \(\alpha \in \Lambda\).
+
+Considerând diagrama
+
+\[
+\begin{tikzcd}
+0 \arrow[r] &
+L_0 \cap M_\alpha \arrow[r,"i_\alpha"] \arrow[d,"i_0"'] &
+M_\alpha \arrow[ddl,"h_\alpha"] \\
+& L_0 \arrow[d,"g_0"'] & \\
+& Q &
+\end{tikzcd}
+\]
+
+rezultă că există \(h_\alpha : M_\alpha \to Q\) astfel încât
+\(h_\alpha \circ i_\alpha = g_0 \circ i_\alpha\).
+Definim
+\(h^{*} : L_0 + M_\alpha \to Q\),
+\(h^{*}(l + m_\alpha) = g_0(l) + h_\alpha(m_\alpha)\),
+pentru orice \(l \in L_0\), \(m_\alpha \in M_\alpha\).
+Dacă \(l + m_\alpha = 0\), atunci \(l = -m_\alpha \in L_0 \cap M_\alpha\) şi deci
+\(h^{*}(l + m_\alpha) = g_0(l) + h_\alpha(l)\), ceea ce arată că \(h^{*}\) este bine definită.
+Atunci \((L_0 + M_\alpha, h^{*}) \in \mathfrak{S}\) şi, cum
+\((L_0,g_0) \preccurlyeq (L_0 + M_\alpha, h^{*})\),
+din maximalitatea lui \((L_0,g_0)\) rezultă că
+\(L_0 = L_0 + M_\alpha\), adică \(M_\alpha \le L_0\) pentru orice \(\alpha \in \Lambda\).
+
+3) „\(\Rightarrow\)” Cum \(N_\alpha \le N\) şi \(Q\) este \(N\)-injectiv,
+avem că \(Q\) este \(N_\alpha\)-injectiv pentru orice \(\alpha \in \Lambda\).
+
+„\(\Leftarrow\)” Fie \(N'_\alpha = i_\alpha(N_\alpha)\).
+Cum \(Q\) este \(N_\alpha\)-injectiv şi \(N'_\alpha \cong N_\alpha\),
+rezultă că \(Q\) este \(N'_\alpha\)-injectiv.
+Apoi aplicăm (2).
 \end{proof}
+
+
+\begin{corollary}
+\leavevmode
+\begin{enumerate}
+  \item \(Q_1 \oplus Q_2\) este \(R\)-modul quasi-injectiv dacă şi numai dacă
+        \(Q_i\) este \(Q_j\)-injectiv pentru orice \(i,j = 1,2\).
+        În particular, un sumand direct al unui modul quasi-injectiv este quasi-injectiv.
+  \item \(Q^{n}\) este \(R\)-modul quasi-injectiv dacă şi numai dacă
+        \(Q\) este quasi-injectiv.
+\end{enumerate}
+\end{corollary}
+
+\begin{corollary}
+Fie \(Q\) şi \(M\) două \(R\)-module. Atunci \(Q\) este \(M\)-injectiv
+dacă şi numai dacă \(Q\) este \(mR\)-injectiv pentru orice \(m \in M\).
+\end{corollary}
+
+\begin{proof}
+„\(\Rightarrow\)” este evident.
+
+„\(\Leftarrow\)” Cum \(M = \sum_{m \in M} mR\), din 2.1.4(2) rezultă
+că \(Q\) este \(M\)-injectiv.
+\end{proof}
+
+\begin{theorem}[Criteriul lui Baer]\label{thm:Baer-ro}
+Pentru un \(R\)-modul \(Q\) următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item \(Q\) este injectiv.
+  \item \(Q\) este \(R\)-injectiv.
+  \item Pentru orice ideal drept \(I\) al lui \(R\) şi orice morfism \(f : I \to Q\)
+        există \(x \in Q\) astfel încât \(f(a) = xa\) pentru orice \(a \in I\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Implicaţia \((1) \Rightarrow (2)\) este evidentă.
+
+\((2) \Rightarrow (1)\).
+Fie \(M\) un \(R\)-modul şi \(x \in M\).
+Cum \(\varphi_x : R \to xR\), \(\varphi_x(a) = xa\) pentru orice \(a \in R\),
+este morfism surjectiv de \(R\)-module, rezultă că
+\(R / \Ker \varphi_x \cong xR\).
+Cum \(Q\) este \(R\)-injectiv, din 2.1.4(1) rezultă că
+\(Q\) este \(R / \Ker \varphi_x\)-injectiv şi deci
+\(Q\) este \(xR\)-injectiv pentru orice \(x \in M\).
+Atunci, din 2.1.6 obţinem că \(Q\) este \(M\)-injectiv.
+
+\((2) \Rightarrow (3)\).
+Fie \(I\) un ideal drept al lui \(R\) şi \(f : I \to Q\).
+Există \(g : R \to Q\) astfel încât \(g\!\mid_{I} = f\).
+Fie \(x = g(1) \in Q\).
+Atunci \(f(a) = g(a) = ag(1) = xa\) pentru orice \(a \in I\).
+
+\((3) \Rightarrow (2)\).
+Dacă pentru un morfism \(f : I \to Q\) există \(x \in Q\) cu \(f(a) = xa\)
+pentru orice \(a \in I\), atunci, definind
+\(g : R \to Q\) prin \(g(r) = xr\) pentru orice \(r \in R\),
+rezultă că \(g\!\mid_{I} = f\).
+\end{proof}
+
+\begin{definition}
+\leavevmode
+\begin{enumerate}
+  \item Un \(R\)-modul \(Q\) se numeşte \emph{divizibil} dacă pentru orice
+        \(y \in Q\) şi orice \(a \in R\) nendivizor al lui zero, există
+        \(x \in Q\) astfel încât \(ax = y\).
+        Se verifică uşor că orice modul factor al unui modul divizibil este divizibil.
+\end{enumerate}
+\end{definition}
 
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
