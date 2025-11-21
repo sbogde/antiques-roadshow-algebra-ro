@@ -1670,6 +1670,141 @@ Obţinem că \(R\) este noetherian la dreapta.
 \end{proof}
 
 
+
+\chapter{Sume directe de module coireductibile}
+
+\begin{proposition}
+Fie \(M\) un \(R\)-modul şi \(E(M)\) anvelopa sa injectivă. Atunci următoarele
+afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item \(E(M)\) este indecompozabil.
+  \item Dacă \(L\) şi \(K\) sunt submodule nenule ale lui \(M\), atunci
+        \(L \cap K \neq 0\).
+  \item Dacă \(x,y \in M\setminus\{0\}\), atunci există \(a,b \in R\) astfel
+        încât \(0 \neq xa = yb\).
+  \item \(M\) este o extensie esenţială a oricărui submodul nenul al său.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\((2) \Rightarrow (1)\).
+Presupunem că \(E(M) = L' \oplus K'\) cu \(L'\) şi \(K'\) submodule nenule ale
+lui \(E(M)\).
+Cum \(M \ess E(M)\), avem că \(L = L' \cap M \neq 0\) şi
+\(K = K' \cap M \neq 0\), deci
+\[
+L \cap K = (L' \cap K') \cap M = 0,
+\]
+ceea ce contrazice ipoteza (2).
+
+\smallskip
+\((1) \Rightarrow (2)\).
+Presupunem că există \(L,K\) submodule nenule ale lui \(M\) astfel încât
+\(L \cap K = 0\).
+Atunci \(E(L) \leq E(M)\) şi \(K \cap E(L) = 0\) (altfel, cum
+\(L \subseteq E(L)\), am avea \(L \cap K \neq 0\)).
+Dar şirul exact scurt
+\[
+0 \longrightarrow E(L) \longrightarrow E(M) \longrightarrow E(M)/E(L)
+\longrightarrow 0
+\]
+este scindat deoarece \(E(L)\) este injectiv şi deci
+\(E(M) \cong E(L) \oplus E(M)/E(L)\).
+Obţinem astfel
+\[
+0 = K \cap E(L) = K \cap E(M) = K,
+\]
+contradicţie.
+
+Echivalenţele \((2) \Leftrightarrow (3)\) şi \((2) \Leftrightarrow (4)\) sunt
+evidente.
+\end{proof}
+
+\begin{definition}
+Un modul \(M\) care satisface una din condiţiile echivalente de mai sus se
+numeşte \emph{coireductibil} (sau \emph{uniform}).
+Fie \(M\) un \(R\)-modul şi \(N\) un submodul propriu al său.
+Dacă \(M/N\) este coireductibil, atunci spunem că \(N\) este
+\emph{ireductibil} în \(M\).
+Este clar că \(N\) este ireductibil în \(M\) dacă şi numai dacă din egalitatea
+\(N = P \cap Q\), unde \(P,Q \le M\), rezultă \(N = P\) sau \(N = Q\).
+\end{definition}
+
+\begin{example*}
+\leavevmode
+\begin{enumerate}
+  \item Este clar că orice modul simplu este coireductibil.
+  \item \(\mathbb{Z}\) este \(\mathbb{Z}\)-modul coireductibil.
+  \item Din Propoziţia~3.1 rezultă că un modul injectiv este indecompozabil
+        dacă şi numai dacă este coireductibil.
+        În particular, dacă \(M\) este un \(R\)-modul coireductibil, atunci
+        \(E(M)\) este coireductibil. Rezultă că \(\mathbb{Q}\) şi
+        \(\mathbb{Z}_{p^\infty}\) sunt \(\mathbb{Z}\)-module coireductibile.
+  \item \(\mathbb{Z}_n\) este \(\mathbb{Z}\)-modul coireductibil dacă şi numai
+        dacă \(n\) este puterea unui număr prim. Dacă \(n = p^k\) cu
+        \(p \ge 2\) şi \(k \ge 1\), atunci
+        \(\langle p^m \rangle \subseteq \langle p^i \rangle \cap \langle p^j \rangle\)
+        pentru orice \(i,j \in \{1,\dots,k-1\}\), unde \(m = \min(i,j)\), şi deci
+        \(\mathbb{Z}_{p^k}\) este coireductibil.
+        Reciproc, presupunem că \(\mathbb{Z}_n\) este coireductibil şi
+        \(n = p_1^{\alpha_1}\cdots p_s^{\alpha_s}\) este descompunerea lui \(n\)
+        în factori primi. Dacă \(s \ge 2\), atunci avem
+        \[
+          \langle p_1^{\alpha_1}\cdots p_{s-1}^{\alpha_{s-1}} \rangle
+          + \mathbb{Z}
+          \quad\text{şi}\quad
+          \langle p_s^{\alpha_s} \rangle + \mathbb{Z}
+        \]
+        submodule nenule a căror intersecţie este zero, contradicţie.
+        Obţinem că \(s = 1\), deci \(n\) este o putere a unui număr prim.
+\end{enumerate}
+\end{example*}
+
+\begin{proposition}
+Fie \(M\) un \(R\)-modul şi \(N\) un submodul propriu al lui \(M\).
+Dacă \(x \in M \setminus N\), atunci există un submodul ireductibil \(P\) al
+lui \(M\) astfel încât \(N \subseteq P\) şi \(x \notin P\).
+\end{proposition}
+
+\begin{proof}
+Fie
+\[
+\mathfrak{S} = \{\,N' \le M \mid N \subseteq N' \text{ şi } x \notin N'\,\}.
+\]
+Mulţimea \(\mathfrak{S}\), ordonată prin incluziune, este inductivă, deci,
+prin lema lui Zorn, admite un element maximal \(P\).
+Arătăm că \(P\) este ireductibil în \(M\).
+Presupunem că \(P = U \cap V\) cu \(U,V \le M\) şi \(P \subsetneq U\),
+\(P \subsetneq V\).
+Cum \(x \notin P\), avem \(x \notin U\) sau \(x \notin V\); să spunem
+\(x \notin U\).
+Atunci \(U \in \mathfrak{S}\) şi \(P \subsetneq U\), ceea ce contrazice
+maximalitatea lui \(P\).
+Rezultă că \(P\) este ireductibil.
+\end{proof}
+
+\begin{corollary}
+Fie \(M\) un \(R\)-modul şi \(N\) un submodul propriu al lui \(M\).
+Atunci \(N\) este intersecţie de submodule ireductibile în \(M\).
+\end{corollary}
+
+\begin{proof}
+Rezultă imediat din propoziţia anterioară.
+\end{proof}
+
+
+\begin{corollary}
+Let \(M\) be an \(R\)-module and \(N\) a proper submodule of \(M\).
+Then \(N\) is the intersection of irreducible submodules of \(M\).
+\end{corollary}
+
+\begin{proof}
+This follows immediately from Proposition~3.3, applied to each
+\(x \in M \setminus N\).
+\end{proof}
+
+
+
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
 % Exemplu:
 % \chapter{Titlul capitolului 1}
