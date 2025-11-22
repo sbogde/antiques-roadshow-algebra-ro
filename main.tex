@@ -41,6 +41,14 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Observaţie}
 
+\makeatletter
+\renewcommand{\thetheorem}{%
+  \ifnum\value{section}=0
+    \thechapter.\arabic{theorem}%   e.g. 1.1, 1.2, 3.1, ...
+  \else
+    \thesection.\arabic{theorem}%   e.g. 0.1.1, 0.1.2, 2.2.3, ...
+  \fi}
+\makeatother
 
 
 % ---------- Title page (fill in the real title later) ----------
