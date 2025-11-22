@@ -2048,6 +2048,98 @@ astfel încât \(\bigcap_{j=1}^n Q_j = 0\), reducând intersecţia.
 Din teorema Kuros–Ore, rezultă \(m = n\).
 \end{proof}
 
+
+\begin{definition}
+Spunem că un \(R\)-modul \(M\) are \emph{dimensiune coireductibilă finită} dacă
+există o familie finită independentă \((N_i)_{i=1}^n\) de submodule
+coireductibile din \(M\) astfel încât
+\[
+\bigoplus_{i=1}^n N_i \ess M.
+\]
+În acest caz numărul \(n\) se numeşte \emph{dimensiunea coireductibilă} a lui
+\(M\) şi scriem \(\dim M = n\).
+\end{definition}
+
+\begin{theorem}
+Fie \(M\) un \(R\)-modul. Următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item \(M\) are dimensiune coireductibilă finită.
+  \item \(M\) satisface condiţia lanţurilor ascendente pentru sume directe.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{\((2) \Rightarrow (1)\).}
+Fie \(\mathcal{S}'\) şi \(\mathcal{S}\) două familii finite de submodule
+independente din \(M\).
+Spunem că \(\mathcal{S}'\) este o \emph{rafinare} a lui \(\mathcal{S}\) dacă
+oricare submodul din \(\mathcal{S}'\) este conţinut într-un submodul din
+\(\mathcal{S}\).
+Se verifică uşor că relaţia de rafinare este o relaţie de ordine pe
+mulţimea familiilor de submodule ale lui \(M\).
+Cum \(M\) satisface (2), există o familie \(\mathcal{S}_0\) de submodule
+independente ale lui \(M\), maximală în raport cu relaţia de rafinare.
+
+Fie \(N \in \mathcal{S}_0\).
+Dacă \(N\) nu este coireductibil, există două submodule nenule
+\(P,Q \leq N\) astfel încât \(P \cap Q = 0\).
+Este clar că din \(\mathcal{S}_0\) se obţine o rafinare proprie a lui
+\(\mathcal{S}_0\), contradicţie.
+Rezultă că orice submodul din \(\mathcal{S}_0\) este coireductibil, deci
+\(M\) conţine un submodul coireductibil.
+Dacă \(L\) este un submodul nenul al lui \(M\), atunci şi \(L\) satisface
+condiţia (2) şi, prin acelaşi raţionament, \(L\) conţine un submodul
+coireductibil.
+
+Fie acum
+\[
+S = \bigoplus_{i\in I} N_i
+\]
+o sumă directă maximală de submodule coireductibile din \(M\) şi
+\(N\) un submodul nenul al lui \(M\).
+Cum \(M\) satisface condiţia lanţurilor ascendente pentru sume directe,
+rezultă că mulţimea \(I\) este finită.
+Din Propoziţia~3.8 rezultă că \(S \cap N \neq 0\), ceea ce arată că
+\(S \ess M\).
+Prin definiţie, \(M\) are dimensiune coireductibilă finită.
+
+\medskip
+\emph{\((1) \Rightarrow (2)\).}
+Fie
+\[
+S = \bigoplus_{i=1}^n N_i
+\]
+o sumă directă de submodule coireductibile astfel încât \(S \ess M\).
+Dacă \(N\) este un submodul nenul al lui \(M\), atunci \(S \cap N \neq 0\),
+iar din Lema~3.6 rezultă că \(N\) conţine un submodul coireductibil.
+
+Fie \((L_j)_{j=1}^m\) o familie independentă de submodule ale lui \(M\).
+Din paragraful precedent rezultă că fiecare \(L_j\) conţine un submodul
+coireductibil \(P_j\).
+Evident, familia \((P_j)_{j=1}^m\) este independentă.
+Din Teorema~3.1.2 obţinem că \(m \leq n\).
+Aceasta arată că orice familie independentă de submodule poate fi extinsă
+numai până la o familie finită, ceea ce este echivalent cu condiţia
+lanţurilor ascendente pentru sume directe.
+\end{proof}
+
+\begin{remark}
+    Fie \(M\) un \(R\)-modul. Atunci:
+\begin{enumerate}
+  \item Dacă \(N \ess M\), atunci \(M\) are dimensiune coireductibilă
+        finită dacă şi numai dacă \(N\) are dimensiune coireductibilă
+        finită şi, în acest caz, \(\dim M = \dim N\).
+  \item Dacă \(M = \bigoplus_{i=1}^n N_i\), atunci \(M\) are dimensiune
+        coireductibilă finită dacă şi numai dacă fiecare \(N_i\) are
+        dimensiune coireductibilă finită pentru orice \(i = 1,\dots,n\).
+        În plus avem
+        \[
+          \dim M = \sum_{i=1}^n \dim N_i .
+        \]
+\end{enumerate}
+\end{remark}
+
+
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
 % Exemplu:
 % \chapter{Titlul capitolului 1}
