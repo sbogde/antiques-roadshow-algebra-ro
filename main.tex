@@ -14,6 +14,7 @@
 \DeclareMathOperator{\Rad}{Rad}
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\ann}{ann}
 
 % notations for essential submodule as per https://en.wikipedia.org/wiki/Essential_extension
 \newcommand{\ess}{\trianglelefteq}  % Anderson–Fuller-style (default in text)
@@ -2414,7 +2415,7 @@ Cum \(xyL \subseteq xK \subseteq xJ \subseteq xR \cap I\), rezultă că
 
 
 % Page 42 – Proposition 4.10 (RO)
-\begin{proposition}[4.10]
+\begin{proposition}
 Fie \(R\) un inel care verifică condiţia lanţurilor ascendente pentru
 ideale anulatori drepte.
 Atunci, pentru orice \(a \in R\) există un număr \(k \geq 0\) astfel încât
@@ -2423,6 +2424,132 @@ Atunci, pentru orice \(a \in R\) există un număr \(k \geq 0\) astfel încât
   \quad \text{pentru orice } n \geq 0 \text{ şi } m \geq k .
 \]
 \end{proposition}
+
+% 4.10 Propoziţie – finalul demonstraţiei
+\begin{proof}
+Avem lanţul ascendent de ideale anulatori la dreapta:
+\[
+  \ann_r(a) \subseteq \ann_r(a^2) \subseteq \cdots \subseteq \ann_r(a^n)
+  \subseteq \cdots .
+\]
+Fie $k \geq 0$ astfel încât $\ann_r(a^k) = \ann_r(a^m)$ pentru orice
+$m \geq k$. Dacă $\lambda \in \ann_r(a^n) \cap a^mR$, atunci
+$a^n \lambda = 0$ şi $\lambda = a^m\mu$, de unde $a^{m+n}\mu = 0$.
+Cum $m+n \geq k$, obţinem că $\mu \in \ann_r(a^k)$ şi deci
+$a^k\mu = 0$. Cum $m \geq k$, putem scrie
+$\lambda = a^{m-k}a^k\mu = 0$ şi deci
+\[
+  \ann_r(a^n) \cap a^mR = 0 .
+\]
+\end{proof}
+
+% 4.11 Corolar
+
+\begin{corollary}
+Suntem în condiţiile propoziţiei~4.10. Dacă $xR \ess R_R$, atunci
+$x$ este element regulat în $R$.
+\end{corollary}
+
+\begin{proof}
+Dacă $\ann_r(x) \neq 0$, atunci $0 = \ann_r(R) \neq \ann_r(xR)$ şi deci
+există un ideal drept $I \neq 0$ astfel încât $I \cap xR = 0$,
+contradicţie. Deci $\ann_r(x) = 0$.
+
+Din Propoziţia~4.9 rezultă că $x^nR \ess R_R$ pentru orice $n \geq 1$.
+Aplicând Propoziţia~4.10, găsim $k \geq 0$ astfel încât
+$\ann_r(x^n) \cap x^mR = 0$ pentru orice $m \geq k$. În special
+$\ann_r(x) = 0$, deci $x$ este element regulat în $R$.
+\end{proof}
+
+
+% 4.12 Corolar
+\begin{corollary}
+Fie $R$ un inel Goldie la dreapta şi semiprime. Dacă $\ann_r(x) = 0$,
+unde $x \in R$, atunci $xR \ess R_R$ şi $x$ este regulat.
+\end{corollary}
+
+\begin{proof}
+Fie $I$ un ideal drept nenul al lui $R$. Presupunem că
+$I \cap xR = 0$. Atunci suma
+\[
+  \sum_{n \geq 1} x^n I
+\]
+este directă. Într-adevăr,
+$x^p I \cap \sum_{n \neq p} x^n I$ este egală cu $xI \cap x^p I$,
+dacă $p = 1$. Dacă $y \in xI \cap x^p I$, atunci
+$y = x\lambda = x^2\mu$, unde $\lambda,\mu \in I$. Dar atunci
+$\lambda - x\mu \in \ann_r(x)$ şi deci $\lambda = x\mu$, de unde
+obţinem că $\lambda \in I \cap xR = 0$. Rezultă că $\lambda = 0$
+şi atunci $y = 0$. Aşadar $xI \cap x^2 I = 0$ şi cu atât mai mult
+$xI \cap x^p I = 0$ dacă $p \neq 1$. Deci
+$x^p I \cap \sum_{n \neq p} x^n I = 0$ şi prin urmare suma
+$\sum_{n \geq 1} x^n I$ este directă, contradicţie.
+
+Rezultă că $xR \ess R_R$. Din Corolarul~4.11 deducem că $x$ este
+element regulat în $R$.
+\end{proof}
+
+
+% 4.13 Propoziţie
+\begin{proposition}
+Fie $R$ un inel Goldie la dreapta şi semiprime. Atunci:
+\begin{enumerate}
+  \item[(a)] Orice ideal bilateral al lui $R$ anulator la dreapta
+             conţine un ideal bilateral anulator la dreapta minimal.
+  \item[(b)] Există o sumă directă finită de ideale bilaterale nenule
+             anulatori la dreapta minimale ale lui $R$, care este
+             esenţială în $R$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) Rezultă din Corolarul~4.8.
+
+(b) Fie $I = I_1 \oplus I_2 \oplus \cdots \oplus I_n$ o sumă directă
+maximală, unde $I_1,\dots,I_n$ sunt ideale nenule bilaterale anulatori
+la dreapta minimale ale lui $R$. Fie $K \leq R_R$, $K \neq 0$ astfel
+încât $I \cap K = 0$. Cum $KI \subseteq I \cap K = 0$, rezultă că
+$K \subseteq \ann_r(I)$. Cum $R$ este semiprime, avem
+$I \cap \ann_r(I) = 0$, de unde $I\ann_r(I) = 0$, deci
+$\ann_l(I) \subseteq \ann_r(I)$ şi în special $\ann_r(I) \neq 0$.
+Cum $R$ este semiprim, rezultă şi că $I \cap \ann_l(I) = 0$, unde
+$\ann_l(I)$ este un ideal bilateral. Din (a) există un ideal bilateral
+nenul $J$ anulator la dreapta şi minimal astfel încât
+$J \subseteq \ann_r(I)$ şi $J \cap I = 0$, ceea ce contrazice
+alegerea lui $I$ ca sumă directă maximală. Prin urmare $I \ess R$.
+\end{proof}
+
+
+% 4.14 Propoziţie
+\begin{proposition}
+Fie $R$ un inel Goldie la dreapta şi prim. Dacă $I$ este un ideal
+drept esenţial în $R$, atunci $I$ conţine un element regulat al lui $R$.
+\end{proposition}
+
+\begin{proof}
+Fie $a \in I$ astfel încât $\ann_r(a)$ este minimal în mulţimea
+$\{\ann_r(x) \mid x \in I\}$. Fie $J \leq R_R$, $J \neq 0$ pentru care
+$aR \cap J = 0$. Cum $I \ess R_R$, avem $I \cap J \neq 0$; putem
+presupune că $J$ este un ideal drept nenul al lui $R$ inclus în $I$
+şi pentru care $aR \cap J = 0$.
+
+Fie $x \in J$. Dacă $\lambda \in \ann_r(a+x)$, atunci
+$a\lambda + x\lambda = 0$ şi deci $x\lambda = -a\lambda \in aR \cap J$,
+de unde $x\lambda = 0$ şi apoi $a\lambda = 0$. Aşadar
+$\lambda \in \ann_r(a) \cap \ann_r(x)$. Cum incluziunea
+\[
+  \ann_r(a) \cap \ann_r(x) \subseteq \ann_r(a+x)
+\]
+este evidentă, obţinem $\ann_r(a+x) = \ann_r(a) \cap \ann_r(x)$.
+Cum $\ann_r(a)$ este minimal, rezultă că $\ann_r(a) \subseteq \ann_r(x)$
+şi deci $x\,\ann_r(a) = 0$, de unde $J \ann_r(a) = 0$.
+Cum $R$ este prim, avem $\ann_r(a) = 0$.
+
+Din Corolarul~4.12 rezultă că $J = 0$, contradicţie. Deci trebuie ca
+$aR \ess R_R$, iar din Corolarul~4.11 obţinem că $a$ este regulat în
+$R$.
+\end{proof}
+
 
 
 
