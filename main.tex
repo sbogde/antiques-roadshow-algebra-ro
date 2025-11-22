@@ -2552,6 +2552,129 @@ $R$.
 
 
 
+% Page 46 – Secţiunea 5.1–5.4 (RO)
+
+\chapter{Teorema Osofsky–Smith}
+
+\begin{definition}
+Un \(R\)-modul \(M\) se numeşte \emph{CS-modul} dacă orice submodul complement al lui \(M\) este sumand direct în \(M\).
+Modulul \(M\) se numeşte \emph{complet CS} dacă \(M/N\) este CS-modul, pentru orice \(N \leq M\).
+\end{definition}
+
+\begin{remark}
+Din 2.2.2 rezultă că orice modul injectiv este CS-modul.
+\end{remark}
+
+\begin{proposition}
+Pentru un \(R\)-modul \(M\) următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item \(M\) este CS-modul.
+  \item Orice extensie esenţială maximală a unui submodul al lui \(M\) este sumand direct în \(M\).
+  \item Orice submodul al lui \(M\) este esenţial într-un sumand direct al lui \(M\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\((1) \Rightarrow (2)\) Fie \(N\) un submodul al lui \(M\) şi \(Q\) o extensie esenţială maximală a lui \(N\) în \(M\) (propoziţia~1.13).
+Atunci \(Q\) este submodul închis şi din 1.15 rezultă că \(Q\) este sumand direct în \(M\).
+
+\((2) \Rightarrow (3)\) este evidentă din propoziţia~1.13.
+
+\((3) \Rightarrow (1)\) Fie \(K\) un submodul complement al lui \(M\).
+Există un sumand direct \(Q\) în \(M\) astfel încât \(K \ess Q \).
+Cum \(K\) este submodul închis, rezultă \(K = Q\) şi deci \(K\) este sumand direct în \(M\).
+\end{proof}
+
+\begin{proposition}
+Orice modul quasi-injectiv este CS-modul.
+\end{proposition}
+
+\begin{proof}
+Fie \(M\) un \(R\)-modul quasi-injectiv şi \(N\) un submodul al său.
+Atunci există \(E_2 \leq E(M)\) astfel încât \(E(M) = E_1 \oplus E_2\), unde \(E_1 = E(N)\).
+Fie \(\pi_i : E(M) \to E_i\), \(i = 1,2\), proiecţiile canonice.
+Cum \(\pi_i(M) \leq M\), pentru orice \(i = 1,2\) (corolarul~2.2.7), rezultă că
+\[
+M = (M \cap E_1) \oplus (M \cap E_2).
+\]
+Evident, \(N \ess (M \cap E_1) \) şi deci \(N\) este esenţial într-un sumand direct al lui \(M\).
+Din propoziţia de mai sus rezultă că \(M\) este CS-modul.
+\end{proof}
+
+
+
+% Page 47 – Lemă 5.5 (RO, prima parte)
+\begin{lemma}
+Fie \(X\) un CS-modul ciclic cu proprietatea că
+\(S = \soc(X) \ess X_R\), \(S\) nu este finit generat, dar orice
+submodul finit generat al lui \(S\) este sumand direct al lui \(X\).
+Dacă orice submodul ciclic al lui \(X\) este CS-modul, atunci
+\(X/S\) nu este CS-modul.
+\end{lemma}
+
+\begin{proof}
+Presupunem că \(X/S\) este CS-modul.
+Cum \(S\) nu este finit generat, putem scrie
+\[
+S = \bigoplus_{i \geq 1} S_i,
+\]
+cu \(S_i \leq X\) şi \(S_i\) ne-finit generat pentru orice \(i \geq 1\).
+
+Pentru orice \(i \geq 1\) există un submodul complement \(D_i\) al lui \(X\) astfel încât
+\(S_i \ess D_i \).
+Atunci \(D_i\) este sumand direct în \(X\) şi deci \(D_i\) este ciclic pentru orice \(i \geq 1\);
+de unde \(S_i \subsetneq D_i\).
+
+Cum \(X/S\) este CS-modul, există \(\overline{E}\) un sumand direct în \(X\) astfel încât
+\[
+\sum_{i \geq 1} \frac{D_i + S}{S}
+  = \frac{D}{S} \ess \overline{E},
+\]
+unde \(D := \bigoplus_{i \geq 1} D_i\).
+Fie \(E\) un submodul ciclic al lui \(X\) astfel încât
+\(\overline{E} = (E + S)/S\).
+Obţinem că
+\[
+\frac{D}{S} \ess \frac{E + S}{S}.
+\]
+
+Cum \(E \cap S \leq S\) şi \(S\) este semisimplu, există \(T \leq S\) astfel încât
+\[
+S = (E \cap S) \oplus T
+\]
+şi deci
+\[
+E + S = (E \cap S) \oplus T.
+\]
+
+Presupunem că există \(i \geq 1\) astfel încât \(D_i \cap E = 0\).
+Considerând proiecţia canonică \(\pi : E \oplus T \to T\) avem că
+\(D_i \cap \ker \pi = 0\), ceea ce arată că
+\(\pi_{\mid D_i}\) este monomorfism şi deci \(D_i\) este semisimplu.
+Dar \(S_i \ess D_i \), ceea ce implică \(S_i = D_i\), contradicţie.
+Rezultă că \(D_i \cap E \neq 0\) pentru orice \(i \geq 1\) şi deci
+\(S_i \cap E \neq 0\) pentru orice \(i \geq 1\).
+
+Cum \(S \ess X_R\), există \(V_i\) simplu astfel încât
+\(V_i \leq S_i \cap E\) pentru orice \(i \geq 1\).
+Fie \(V := \bigoplus_{i \geq 1} V_i\).
+Modulul \(E\) este CS-modul deoarece \(E\) este ciclic.
+Există un sumand direct \(L\) al lui \(X\) astfel încât \(V \ess L\).
+Observăm că \(L\) este ciclic şi deci \(V \subsetneq L\).
+Fie \(n \geq 1\) şi notăm
+\[
+P_n := \left( \bigoplus_{i=1}^n D_i \right) \cap L.
+\]
+Avem
+\[
+P_n \cap S
+  = L \cap \left( \bigoplus_{i=1}^n S_i \right)
+  = V \cap \left( \bigoplus_{i=1}^n S_i \right)
+  = \bigoplus_{i=1}^n V_i,
+\]
+şi deci \(P_n \cap S\) este....
+\end{proof}
+
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
 % Exemplu:
