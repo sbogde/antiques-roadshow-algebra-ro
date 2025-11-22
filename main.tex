@@ -1811,7 +1811,242 @@ This follows immediately from Proposition~3.3, applied to each
 \(x \in M \setminus N\).
 \end{proof}
 
+\begin{proof}
+1) Rezultă imediat din 3.1.
 
+2) Fie $M \ess E$ o extensie esenţială a lui $M$. Dacă $E_1,E_2$ sunt
+submodule nenule ale lui $E$, atunci $M \cap E_1 \neq 0$ şi
+$M \cap E_2 \neq 0$, de unde rezultă că
+\[
+(M \cap E_1) \cap (M \cap E_2) \neq 0
+\]
+şi deci $E_1 \cap E_2 \neq 0$, adică $E$ este coireductibil.
+\end{proof}
+
+
+\begin{lemma}
+Fie $M$ un $R$-modul şi $(M_\alpha)_{\alpha \in \Lambda}$ o familie
+de submodule independente. Dacă $N$ este un submodul al lui $M$ astfel
+încât
+\[
+N \cap \Bigl(\sum_{\alpha \in \Lambda} M_\alpha\Bigr) \neq 0,
+\]
+există un submodul nenul într-un $M_\alpha$ izomorf cu un submodul din $N$.
+\end{lemma}
+
+\begin{proof}
+Dacă $\operatorname{Card}\Lambda = 1$, afirmaţia este evidentă.
+
+Dacă $\operatorname{Card}\Lambda = 2$, punem $P = N \cap (M_1 + M_2)$.
+Dacă $N \cap M_1 = 0$, atunci $P \cong (P + M_1)/M_1$ şi
+\[
+(P + M_1)/M_1 \leq (M_1 + M_2)/M_1 \cong M_2.
+\]
+Deci $P$ este izomorf cu un submodul din $M_2$.
+Dacă $\Lambda$ este mulţime finită, procedând prin inducţie,
+demonstraţia se reduce la cazul precedent.
+
+Dacă $\Lambda$ este infinită, considerăm
+$x \in N \cap \bigl(\sum_{\alpha \in \Lambda} M_\alpha\bigr)$,
+$x \neq 0$. Atunci există $\alpha_1,\ldots,\alpha_n \in \Lambda$ astfel
+încât
+\[
+xR \cap (M_{\alpha_1} + M_{\alpha_2} + \cdots + M_{\alpha_n}) \neq 0
+\]
+şi ne reducem la cazul în care $\Lambda$ este finită.
+\end{proof}
+
+\begin{remark}
+Fie $M$ un $R$-modul drept şi $\Omega$ mulţimea de submodule
+coireductibile din $M$. Este posibil ca $\Omega = \emptyset$.
+Fie
+\[
+\mathcal{S} = \bigl\{\Omega' \subseteq \Omega \,\bigm|\, \sum_{N \in \Omega'}
+N \text{ este directă} \bigr\}.
+\]
+Perechea $(\mathcal{S},\subseteq)$ este inductivă şi, din lema lui Zorn,
+$\mathcal{S}$ are un element maximal $\Omega_0$.
+Punem $S = \bigoplus_{N \in \Omega_0} N$.
+Spunem că $S$ este o sumă directă maximală de submodule
+coireductibile din $M$.
+\end{remark}
+
+\begin{proposition}
+Fie $M$ un $R$-modul şi $S$ o sumă directă maximală de submodule
+coireductibile din $M$. Dacă $N$ este un submodul nenul al lui $M$,
+atunci următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item $S \cap N \neq 0$;
+  \item $N$ conţine un submodul coireductibil.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Implicaţia \((1)\Rightarrow(2)\) rezultă din lema~3.6.
+
+Implicaţia \((2)\Rightarrow(1)\) rezultă din maximalitatea lui $S$.
+\end{proof}
+
+\begin{theorem}
+Fie $M$ un $R$-modul şi $S$ o sumă directă maximală de submodule
+coireductibile din $M$. Există un submodul $K$ maximal printre
+submodulele lui $M$ care nu conţin nici un coireductibil, cu
+proprietăţile:
+\begin{enumerate}
+  \item $S + K$ este directă;
+  \item $(S \oplus K) \ess M$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+\item Fie
+\[
+\mathcal{S} = \{\,L \leq M \mid \forall L' \leq L,\; L' \text{ nu este
+coireductibil}\,\}.
+\]
+Avem $\mathcal{S} \neq \emptyset$ deoarece $0 \in \mathcal{S}$ şi
+$\mathcal{S}$ este inductivă. Din lema lui Zorn, $\mathcal{S}$ are un
+element maximal $K$. Din Propoziţia~3.8 rezultă că $S \cap K = 0$.
+
+\item Presupunem că $N \cap (S \oplus K) = 0$, unde $N$ este un
+submodul nenul al lui $M$. Atunci $(N + K) \cap S = 0$ şi din
+Propoziţia~3.8 rezultă că $N + K$ nu conţine nici un submodul
+coireductibil, ceea ce contrazice maximalitatea lui $K$.
+Obţinem că $(S \oplus K) \ess M$.
+\end{enumerate}
+\end{proof}
+
+\begin{definition}
+Fie $M$ un $R$-modul.
+O intersecţie finită de submodule
+\[
+\bigcap_{i \in I} N_i \qquad (I \text{ finit})
+\]
+se numeşte \emph{redusă} dacă, oricare ar fi $i \in I$, avem
+\[
+\bigcap_{i \in I} N_i \neq
+\bigcap_{\substack{j \in I \\ j \neq i}} N_j .
+\]
+
+Este clar că, dacă avem o intersecţie finită
+$N = \bigcap_{i \in I} N_i$ de submodule ireductibile, ea poate fi
+adusă întotdeauna la o intersecţie redusă de submodule ireductibile.
+\end{definition}
+
+
+% Teorema 3.11 (Kuros–Ore) – RO
+\begin{theorem}[Teorema (Kuros–Ore)]
+Fie \(M\) un \(R\)-modul şi \(N\) un submodul al lui \(M\). Presupunem că avem
+intersecţiile finite reduse pentru \(N\):
+\[
+N = N_1 \cap N_2 \cap \dots \cap N_m = L_1 \cap L_2 \cap \dots \cap L_n ,
+\]
+unde \(N_i\) şi \(L_j\) sunt submodule ireductibile din \(M\). Atunci \(m = n\).
+\end{theorem}
+
+\begin{proof}
+Notăm \(N_i' = N_1 \cap \dots \cap N_{i-1} \cap N_{i+1} \cap \dots \cap N_m\).
+Avem că \(N \subseteq N_i'\) şi \(N = N_i \cap N_i'\). Fie
+\(P_j = N_i \cap L_j\), \(\forall j = 1,\dots,n\).
+Atunci \(N \subseteq P_j \subseteq N_i'\) şi \(P_j \subseteq L_j\),
+de unde rezultă că
+\[
+N \subseteq \bigcap_{j=1}^n P_j \subseteq \bigcap_{j=1}^n L_j = N,
+\]
+şi deci \(\bigcap_{j=1}^n P_j = N\).
+
+Cum \(N_i\) este ireductibil în \(M\), rezultă că \(N_i\) este ireductibil în
+\(N_i + N_i'\), şi deci
+\[
+\frac{N_i'}{N_i' \cap N_i} \cong \frac{N_i + N_i'}{N_i}
+\]
+este coirreductibil, ceea ce arată că \(N\) este ireductibil în \(N_i'\).
+
+Atunci, din egalitatea \(N = \bigcap_{j=1}^n P_j\),
+există un \(j\) astfel încât \(N = P_j\).
+Deci \(N = N_i \cap L_j\), adică
+\[
+N = N_i \cap \dots \cap N_{i-1} \cap L_j \cap N_{i+1} \cap \dots \cap N_m.
+\]
+
+Notăm \(I = \{1,2,\dots,m\}\),
+\(J = \{1,2,\dots,n\}\) şi fie \(i_1 \in I\).
+Există \(j_1 \in J\) astfel încât
+\[
+N = L_{j_1} \cap \left(\bigcap_{i \ne i_1} N_i\right).
+\]
+
+Deoarece intersecţia este finită, putem să o reducem:
+din reducerea succesivă şi prin faptul că nu dispare niciun \(L_{j_k}\),
+obţinem un şir strict descrescător
+\[
+J \supseteq J_1 \supseteq J_2 \supseteq \dots \supseteq J_r,
+\]
+cu cel mult \(r\le m\) elemente,
+astfel încât pentru un anumit set final \(J'\subseteq J\),
+\[
+N = \bigcap_{j\in J'} L_j.
+\]
+
+Este clar că \(r\le m\). Cum intersecţia \(N = L_1 \cap \dots \cap L_n\)
+este redusă, avem \(J' = J\).
+Pe de altă parte, \(J'\) are cel mult \(r\) elemente,
+deci \(n \le r \le m\), iar simetric \(m \le n\).
+\end{proof}
+
+% Teorema 3.12 – RO
+\begin{theorem}
+Fie \(M\) un \(R\)-modul şi \((N_i)_{i=1}^m\) şi \((L_j)_{j=1}^n\) două familii
+independente de submodule coirreductibile astfel încât
+\[
+\bigoplus_{i=1}^m N_i \subseteq M
+\quad\text{şi}\quad
+\bigoplus_{j=1}^n L_j \subseteq M
+\]
+sunt esenţiale în \(M\).  
+Atunci \(m = n\).
+\end{theorem}
+
+\begin{proof}
+Notăm \(N_k' = \bigoplus_{i\ne k} N_i\), pentru fiecare \(k=1,\dots,m\).
+Atunci \(N_k \cap N_k' = 0\).
+
+Se verifică uşor că mulţimea
+\[
+\mathfrak{S}_k = \{P \le M \mid N_k \cap P = 0 \text{ şi } N_k \subseteq P\}
+\]
+este inductivă. Din lema lui Zorn, are un element maximal \(P_k\).
+Dacă \(Q,Q' \le M\) sunt astfel încât \(P_k \subseteq Q \subseteq Q'\),
+atunci \(N_k \cap Q \ne 0\) şi \(N_k \cap Q' \ne 0\),
+iar ireductibilitatea lui \(N_k\) arată că \(P_k = Q = Q'\).
+Deci \(P_k\) este coirreductibil pentru fiecare \(k\).
+
+Fie \(k\in\{1,\dots,m\}\).
+Atunci
+\[
+N = \bigoplus_{k=1}^m N_k = N_k \oplus N_k'.
+\]
+Aplicând legea distributivităţii modulare, obţinem
+\[
+N \cap P_k = (N_k \oplus N_k') \cap P_k
+           = N_k + (N_k' \cap P_k),
+\]
+deci \(N \cap P_k = N_k\).
+Rezultă că
+\[
+N \cap \bigcap_{k=1}^m P_k = \bigcap_{k=1}^m (N\cap P_k) = \bigcap_{k=1}^m N_k = 0.
+\]
+
+Dar \(NVM\), deci \(\bigcap_{k=1}^m P_k = 0\).
+
+Cum \(N_i = \bigcap_{k\ne i} P_k\), avem că fiecare intersecţie este redusă.
+
+Analog, pentru familia \((L_j)\), obţinem submodule ireductibile \((Q_j)\)
+astfel încât \(\bigcap_{j=1}^n Q_j = 0\), reducând intersecţia.
+
+Din teorema Kuros–Ore, rezultă \(m = n\).
+\end{proof}
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
 % Exemplu:
