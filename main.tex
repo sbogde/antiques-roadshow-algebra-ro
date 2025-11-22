@@ -2140,6 +2140,140 @@ lanţurilor ascendente pentru sume directe.
 \end{remark}
 
 
+
+
+% RO – Titlu capitol 4
+\chapter{Domenii Ore şi inele Goldie}
+
+% RO – 4.1 Definiţie (domeniu Ore)
+\begin{definition}
+Un domeniu de integritate \(D\) se numeşte \emph{domeniu Ore la dreapta}
+(respectiv la stânga) dacă \(aD \cap bD \neq 0\)
+(respectiv \(Da \cap Db \neq 0\)) oricare ar fi \(a,b \in D \setminus \{0\}\).
+\end{definition}
+
+% RO – 4.2 Propoziţie (domeniu Ore şi ideal coireductibil)
+\begin{proposition}
+Fie \(D\) un domeniu de integritate.
+Atunci \(D\) este un domeniu Ore la dreapta dacă şi numai dacă
+\(D\) conţine un ideal drept coireductibil.
+În particular, această condiţie este verificată când \(D\) satisface
+condiţia lanţurilor ascendente pentru sume directe de ideale drepte.
+\end{proposition}
+
+\begin{proof}
+„\(\Rightarrow\)” Dacă \(D\) este un domeniu Ore la dreapta atunci
+\(D_D\) este coireductibil.
+
+„\(\Leftarrow\)” Fie \(X\) un ideal drept coireductibil al lui \(D\) şi
+\(x \in X \setminus \{0\}\).
+Aplicaţia
+\[
+\varphi_x : D_D \longrightarrow X, \qquad \varphi_x(a) = xa
+\]
+este un morfism injectiv de \(D\)-module drepte.
+Atunci \(D_D\) este coireductibil şi deci \(D\) este domeniu Ore la dreapta.
+\end{proof}
+
+
+% RO – 4.3 Exemplu (inelul A = K(y)[x])
+\begin{example}
+Fie \(K\) un corp comutativ şi \(y\) o nedeterminată.
+Considerăm \(K(y)\) corpul de fracţii al inelului de polinoame \(K[y]\).
+Dacă \(x\) este o altă nedeterminată, considerăm \(K(y)[x]\) mulţimea
+polinoamelor cu coeficienţi în \(K(y)\) şi în nedeterminata \(x\).
+Pe această mulţime definim două operaţii: operaţia de adunare fiind
+adunarea obişnuită a polinoamelor, iar operaţia de înmulţire în
+\(K(y)[x]\) o definim prin relaţia de comutare
+\[
+x f(y) = f(y^{2})x, \qquad f \in K(y).
+\]
+Se verifică imediat că mulţimea \(K(y)[x]\), cu cele două operaţii,
+este un inel unitar.
+Notăm \(A = K(y)[x]\).
+\(A\) este un domeniu de integritate necomutativ.
+
+Orice element din \(A\) poate fi pus sub formă unică:
+\[
+P(x) = f_{n}(y)x^{n} + f_{n-1}(y)x^{n-1} + \dots + f_{1}(y)x + f_{0}(y),
+\]
+unde \(n\) este un număr natural şi
+\(f_{0}(y), f_{1}(y), \dots, f_{n}(y) \in K(y)\), \(f_{n}(y) \neq 0\).
+Vom nota \(\deg P(x) = n\).
+
+Observăm că, dacă \(P(x), Q(x) \in A\) cu \(Q(x) \neq 0\), există
+două elemente \(S(x), R(x) \in A\) astfel încât
+\[
+P(x) = S(x)Q(x) + R(x)
+\tag{\(*\)}
+\]
+cu \(R(x) = 0\) sau \(\deg R(x) < \deg Q(x)\).
+Din relaţiile \((*)\) rezultă că \(A\) este inel principal la stânga.
+Rezultă că \(A\) satisface condiţia lanţurilor ascendente pentru sume
+directe de ideale la stânga şi deci \(A\) este domeniu Ore la stânga.
+
+Să arătăm egalitatea \(xA \cap yA = 0\).
+Fie \(\alpha \in xA \cap yA\).
+Atunci
+\[
+\alpha = x\bigl(f_{n}(y)x^{n} + \dots + f_{0}(y)\bigr)
+       = yx\bigl(g_{m}(y)x^{m} + \dots + g_{0}(y)\bigr),
+\]
+de unde
+\[
+f_{n}(y^{2})x^{n+1} + \dots + f_{0}(y^{2})x
+ = y\bigl(g_{m}(y^{2})x^{m+1} + \dots + g_{0}(y^{2})x\bigr)
+\]
+şi deci \(m = n\).
+Rezultă
+\[
+f_{n}(y^{2}) = y g_{m}(y^{2}), \dots, f_{0}(y^{2}) = y g_{0}(y^{2}),
+\]
+ceea ce are loc dacă şi numai dacă
+\(f_{n}(y) = \dots = f_{1}(y) = f_{0}(y) = 0\) şi deci \(\alpha = 0\).
+Rezultă că \(A\) nu este domeniu Ore la dreapta.
+\end{example}
+
+\begin{center}
+\textbf{INELE GOLDIE}
+\end{center}
+
+% RO – 4.4 Definiţie (ideale anulatori, inel Goldie)
+\begin{definition}
+Un ideal drept (respectiv stâng) \(I\) se numeşte \emph{ideal anulator la dreapta}
+(respectiv la stânga) dacă există o submulţime nevidă \(X\) a lui \(R\) astfel
+încât \(I = \operatorname{ann}_{r}(X)\) (respectiv
+\(I = \operatorname{ann}_{l}(X)\)).
+
+Un inel \(R\) se numeşte \emph{inel Goldie la dreapta} dacă \(R\) satisface
+condiţia lanţurilor ascendente pentru ideale anulatori la dreapta şi nu
+există în \(R\) o sumă directă infinită de ideale drepte nenule.
+\end{definition}
+
+% RO – 4.5 Exemple (inele Goldie)
+\begin{example}
+\leavevmode
+\begin{enumerate}
+  \item Dacă \(R\) este inel noetherian la dreapta, atunci \(R\) este inel
+        Goldie la dreapta. În particular, \(\mathbb{Z}\) este inel Goldie.
+  \item Dacă \(R\) este un domeniu de integritate, atunci \(R\) este inel
+        Goldie la dreapta dacă şi numai dacă \(R\) este domeniu Ore la dreapta.
+  \item Din exemplul~4.3 rezultă că există inele Goldie la stânga care nu sunt
+        Goldie la dreapta.
+\end{enumerate}
+\end{example}
+
+
+% RO – 4.6 Propoziţie (enunţ început, restul pe pagina următoare)
+\begin{proposition}
+Fie \(R\) un inel.
+Atunci \(R\) verifică condiţia lanţurilor ascendente pentru ideale
+anulatori la dreapta (respectiv la stânga) dacă şi numai dacă
+\(R\) verifică \dots
+\end{proposition}
+
+
+
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
 % Exemplu:
 % \chapter{Titlul capitolului 1}
