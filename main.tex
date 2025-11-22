@@ -2269,7 +2269,159 @@ există în \(R\) o sumă directă infinită de ideale drepte nenule.
 Fie \(R\) un inel.
 Atunci \(R\) verifică condiţia lanţurilor ascendente pentru ideale
 anulatori la dreapta (respectiv la stânga) dacă şi numai dacă
-\(R\) verifică \dots
+\(R\) verifică condiţia lanţurilor descendente pentru ideale anulatori la stânga (respectiv la dreapta).
+\end{proposition}
+
+% Page 41 – Demonstration of Proposition 4.6 (RO)
+
+\begin{proof}
+``\(\Rightarrow\)''\;
+Fie \(I_1 \supseteq I_2 \supseteq \dots \supseteq I_n \supseteq \dots\) un şir descendent
+de ideale anulatori la stânga.
+Pentru orice \(j \geq 1\) există o mulţime nevidă \(X_j \subseteq R\) astfel încât
+\(I_j = \operatorname{ann}_\ell(X_j)\).
+
+Atunci obţinem şirul ascendent de ideale anulatori la dreapta
+\[
+  \operatorname{ann}_r(I_1) \subseteq \operatorname{ann}_r(I_2) \subseteq
+  \dots \subseteq \operatorname{ann}_r(I_n) \subseteq \dots
+\]
+şi deci există \(m \geq 1\) astfel încât
+\(\operatorname{ann}_r(I_m) = \operatorname{ann}_r(I_{m+k})\) pentru orice \(k \geq 1\).
+Rezultă că
+\[
+  \operatorname{ann}_\ell(\operatorname{ann}_r(I_m))
+  = \operatorname{ann}_\ell(\operatorname{ann}_r(I_{m+k}))
+  \quad \text{pentru orice } k \geq 1,
+\]
+adică \(I_m = I_{m+k}\) pentru orice \(k \geq 1\).
+
+Folosind relaţiile
+\(\operatorname{ann}_\ell(\operatorname{ann}_r(\operatorname{ann}_\ell(X)))
+ = \operatorname{ann}_\ell(X)\) şi
+\(\operatorname{ann}_r(Y) \subseteq \operatorname{ann}_r(X)\) dacă \(X \subseteq Y\),
+implicaţia ``\(\Leftarrow\)'' se demonstrează analog.
+\end{proof}
+
+
+% Page 41 – Proposition 4.7 (RO)
+\begin{proposition}
+Fie \(R\) un inel semiprim care satisface condiţia lanţurilor ascendente
+pentru ideale anulatori la dreapta.
+Dacă \(I\) şi \(J\) sunt ideale drepte astfel încât \(I \subseteq J\),
+atunci există un element \(b \in R\) astfel încât \(bJ \neq 0\) şi \(bJ \cap I = 0\).
+\end{proposition}
+
+\begin{proof}
+Din lema precedentă există un element minimal \(a\) în mulţimea idealelor
+anulatori la stânga astfel încât
+\(\operatorname{ann}_\ell(J) \subseteq \operatorname{ann}_\ell(I)\).
+Atunci \(aJ \neq 0\), iar cum \(R\) este inel semiprim, obţinem
+\(aJ \cdot aJ \neq 0\) şi deci există \(b = x a\) cu \(x \in J\), \(a \in aJ\)
+astfel încât \(x a J \neq 0\).
+Evident, \(bJ \neq 0\).
+
+Rămâne să arătăm că \(bJ \cap I = 0\).
+Fie \(\lambda \in bJ \cap I\), deci \(\lambda = b\mu = x a \mu \in I\) pentru un
+\(\mu \in J\).
+Cum \(\operatorname{ann}_\ell(J) \subseteq \operatorname{ann}_\ell(\lambda)\),
+obţinem
+\[
+  \operatorname{ann}_\ell(J) \subseteq \operatorname{ann}_\ell(\lambda)
+  \subseteq \operatorname{ann}_\ell(\mu).
+\]
+Deoarece \(a \in aJ \subseteq aR\), avem
+\begin{equation}\label{eq:4.7-1}
+  x a \in a \quad \text{şi deci} \quad x a J \subseteq aJ .
+\end{equation}
+
+Pe de altă parte, \(x a J \subseteq I\), iar \(\lambda \in I\) şi
+\(a \subseteq \operatorname{ann}_r(I)\), astfel încât
+\begin{equation}\label{eq:4.7-2}
+  a \subseteq \operatorname{ann}_\ell(\mu).
+\end{equation}
+Dar cum \(x a J \neq 0\), avem
+\begin{equation}\label{eq:4.7-3}
+  a \nsubseteq \operatorname{ann}_\ell(J).
+\end{equation}
+
+Din \eqref{eq:4.7-1}, \eqref{eq:4.7-2} şi \eqref{eq:4.7-3} obţinem că
+\(\operatorname{ann}_\ell(J) \subseteq \operatorname{ann}_\ell(\mu) \cap a\).
+Dacă \(\lambda \neq 0\), atunci \(x a \mu \notin \operatorname{ann}_\ell(\mu)\) şi,
+cum \(x a \in a\), rezultă că \(x a \mu \neq 0\), ceea ce contrazice
+alegerea lui \(a\).
+Deci \(\lambda = 0\), şi atunci \(bJ \cap I = 0\).
+\end{proof}
+
+
+
+% Page 42 – Corollary 4.8 (RO)
+\begin{corollary}
+Dacă \(R\) este un inel Goldie la dreapta semiprim, atunci \(R\) satisface
+condiţia lanţurilor descendente pentru ideale anulatori la dreapta.
+\end{corollary}
+
+\begin{proof}
+Presupunem că există un şir strict descrescător de ideale anulatori la dreapta
+\[
+  I_1 \supset I_2 \supset \dots \supset I_n \supset \dots .
+\]
+Atunci pentru orice \(n \geq 1\) avem
+\(\operatorname{ann}_\ell(I_n) \neq \operatorname{ann}_\ell(I_{n+1})\).
+Din Propoziţia~4.7 rezultă că pentru orice \(n \geq 1\) există un ideal drept
+\(K_n\) astfel încât \(K_n \subseteq I_n\) şi \(K_n \cap I_{n+1} \neq 0\).
+Atunci suma directă \(\sum_{n \geq 1} K_n\) este o sumă directă infinită
+de ideale drepte nenule, în contradicţie cu faptul că \(R\) este Goldie
+la dreapta.
+\end{proof}
+
+% Page 42 – Proposition 4.9 (RO)
+\begin{proposition}
+Fie \(R\) un inel semiprim care satisface condiţia lanţurilor ascendente
+pentru ideale anulatori la dreapta.
+Dacă \(x, y \in R\) sunt astfel încât \(xR\) şi \(yR\) sunt esenţiale în \(R_R\),
+atunci \(xyR\) este esenţial.
+\end{proposition}
+
+\begin{proof}
+Fie \(I \leq R_R\) cu \(I \neq 0\).
+Notăm
+\[
+  J = \{ I : x \} = \{ a \in R \mid xa \in I \}.
+\]
+Atunci \(J\) este un ideal drept al lui \(R\), iar
+\(xJ = xR \cap I \neq 0\) deoarece \(xR \unlhd R_R\).
+Cum \(\operatorname{ann}_r(x) \subseteq J\) şi \(xJ \neq 0\) iar
+\(\operatorname{ann}_\ell(x) = 0\), obţinem
+\[
+  \operatorname{ann}_\ell(J) \subseteq \operatorname{ann}_\ell(\operatorname{ann}_r(x)).
+\]
+Din Propoziţia~4.7 rezultă că există un ideal drept \(K \neq 0\) astfel încât
+\(K \subseteq J\) şi \(K \cap \operatorname{ann}_r(x) = 0\).
+
+Notăm apoi
+\[
+  L = \{ K : y \} = \{ a \in R \mid ya \in K \}.
+\]
+Deoarece \(yR \unlhd R_R\), avem \(yL = yR \cap K \neq 0\).
+Dacă \(xyL = 0\), atunci \(yL \subseteq \operatorname{ann}_r(x)\) şi deci
+\(yL \subseteq \operatorname{ann}_r(x) \cap K = 0\), contradicţie.
+Prin urmare \(xyL \neq 0\).
+
+Cum \(xyL \subseteq xK \subseteq xJ \subseteq xR \cap I\), rezultă că
+\(0 \neq xyL \subseteq xyR \cap I\), ceea ce arată că \(xyR \unlhd R_R\).
+\end{proof}
+
+
+% Page 42 – Proposition 4.10 (RO)
+\begin{proposition}[4.10]
+Fie \(R\) un inel care verifică condiţia lanţurilor ascendente pentru
+ideale anulatori drepte.
+Atunci, pentru orice \(a \in R\) există un număr \(k \geq 0\) astfel încât
+\[
+  \operatorname{ann}_r(a^n) = \operatorname{ann}_r(a^m)
+  \quad \text{pentru orice } n \geq 0 \text{ şi } m \geq k .
+\]
 \end{proposition}
 
 
