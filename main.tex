@@ -2796,7 +2796,7 @@ Atunci orice \(R\)-modul ciclic este o sumă directă finită de module
 coireductibile.
 \end{corollary}
 
-\begin{proof}[Demonstratie]
+\begin{proof}
 Fie \(M_R\) un modul ciclic, \(m \in M\) şi \(N \leq mR\).
 Atunci factorul \(mR/N\) este un modul ciclic şi, prin ipoteză,
 un CS-modul.
@@ -2806,13 +2806,13 @@ coireductibile.
 \end{proof}
 
 % 5.8 Corolar – enunț și demonstrație (RO)
-\begin{corollary}[Corolar 5.8]
+\begin{corollary}
 Dacă \(N\) este un \(R\)-modul astfel încât
 orice modul factor al oricărui submodul ciclic al lui \(N\) este injectiv,
 atunci \(N\) este semisimplu.
 \end{corollary}
 
-\begin{proof}[Demonstratie]
+\begin{proof}
 Fie \(0 \neq x \in N\) şi \(C = xR \leq N\).
 Prin ipoteză, orice modul factor al unui submodul ciclic al lui \(C\)
 este injectiv, deci orice submodul ciclic al lui \(C\) este complet CS.
@@ -2827,14 +2827,117 @@ Cum
 U_i \cong C \big/ \bigoplus_{j \neq i} U_j,
 \]
 rezultă că fiecare \(U_i\) este injectiv şi, prin urmare,
-\(U_i\) este indecompozabil pentru tot \(i = 1,\dots,n\)
+\(U_i\) este indecompozabil pentru orice \(i = 1,\dots,n\)
 (vezi propoziţia~3.1).
 % Astfel \(C\) este sumă directă finită de module injective indecompozabile, deci semisimplu. Cum \(x\) a fost arbitrar, rezultă că \(N\) este semisimplu.
 
+Fie \(y \in U_i\). Atunci \(yR \cong yR/0\) este injectiv, adică şirul exact
+\[
+0 \longrightarrow yR \longrightarrow U_i \longrightarrow U_i / yR \longrightarrow 0
+\]
+este scindabil. Din 2.1.15 rezultă că \(yR\) este sumand direct în \(U_i\), şi deci
+\(yR = U_i\) sau \(yR = 0\) pentru orice \(y \in U_i\).
+Obţinem că \(U_i\) este simplu şi deci \(C = xR\) este semisimplu pentru orice
+\(x \in N\), de unde rezultă că \(N\) este semisimplu.
 
 \end{proof}
 
+\begin{corollary}[Osofsky]\label{cor:5.9-RO}
+Dacă \(R\) este un inel astfel încât orice \(R\)-modul ciclic este injectiv,
+atunci \(R\) este semisimplu artinian.
+\end{corollary}
 
+\begin{proof}
+Observând că putem aplica corolarul de mai sus pentru \(N = R\), rezultă că
+\(R\) este semisimplu.
+\end{proof}
+
+\begin{corollary}\label{cor:5.10-RO}
+Fie \(R\) un inel astfel încât orice \(R\)-modul ciclic singular este injectiv.
+Atunci orice \(R\)-modul singular este semisimplu.
+\end{corollary}
+
+\begin{proof}
+Fie \(M\) un \(R\)-modul singular.
+Submodulele şi modulele factor ale unui modul singular sunt singulare.
+În particular, dacă \(x \in M \setminus \{0\}\), orice modul factor al
+oricărui submodul ciclic al lui \(xR\) este injectiv.
+Din Corolarul~5.8 rezultă că \(xR\) este semisimplu pentru orice
+\(x \in M \setminus \{0\}\), ceea ce arată că \(M\) este semisimplu.
+\end{proof}
+
+
+\begin{lemma}\label{lem:5.11-RO}
+Fie \(S\) un \(R\)-modul simplu.
+Atunci \(S\) este singular dacă şi numai dacă
+\(S \cdot \soc(R) = 0\).
+\end{lemma}
+
+\begin{proof}
+Fie \(M\) un ideal maximal drept al lui \(R\).
+Arătăm că \(M \ess R_R\) dacă şi numai dacă \(\soc(R) \subseteq M\).
+
+Necesitatea este evidentă dacă ţinem cont că
+\[
+\soc(R) = \bigcap_{L\ess R} L,
+\]
+unde intersecţia este luată peste toate idealele maximale drepte \(L\) ale lui \(R_R\).
+
+Invers, dacă \(M\) nu este esenţial în \(R\), există \(0 \neq a \in R\) astfel
+încât \(aR \cap M = 0\).
+Folosind maximalitatea lui \(M\), \(aR \oplus M = R\), adică
+\(aR \cong R / M\), ceea ce arată că \(aR\) este simplu şi deci
+\(aR \subseteq \soc(R)\), de unde \(aR \subseteq M\), contradicţie.
+
+Cum \(S\) este un \(R\)-modul simplu singular, pentru orice \(x \in S\),
+\(\ann_R(x)\) este un ideal maximal esenţial al lui \(R\) şi din observaţia de
+mai sus rezultă că \(\soc(R) \subseteq \ann_R(x)\) pentru orice \(x \in S\),
+ceea ce este echivalent cu relaţia \(S \cdot \soc(R) = 0\).
+\end{proof}
+
+\begin{corollary}\label{cor:5.12-RO}
+Următoarele afirmaţii sunt echivalente:
+\begin{enumerate}
+  \item Orice \(R\)-modul ciclic singular este injectiv.
+  \item Orice \(R\)-modul singular este injectiv.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+\emph{\((1) \Rightarrow (2)\).}
+Presupunem că \(Z(R_R) \neq 0\) şi fie \(a \in Z(R_R) \setminus \{0\}\).
+Atunci \(aR\) este un \(R\)-modul ciclic singular, deci injectiv.
+Rezultă că \(aR\) este sumand direct al lui \(R\), de unde avem că există
+\(e = e^2 \in R \setminus \{0\}\) astfel încât \(aR = eR\) şi deci
+\(e \in Z(R_R)\), contradicţie deoarece \(\ann_r(e) \cap eR = 0\).
+Obţinem că \(R\) este nesingular şi învelişul injectiv al unui modul singular
+este singular (cf.\ A.~W.~Goldie, \emph{Torsion free modules and rings},
+J.~Algebra (1964), 268–287).
+
+Fie \(M\) un \(R\)-modul singular.
+Cum \(E(M)\) este \(R\)-modul singular, din Corolarul~5.10 avem că
+\(E(M)\) este semisimplu.
+Obţinem că \(M\) este sumand direct al lui \(E(M)\) şi deci \(M = E(M)\),
+adică \(M\) este injectiv.
+
+\emph{\((2) \Rightarrow (1)\).}
+Implicaţia este evidentă.
+\end{proof}
+
+\begin{corollary}[Goodearl]\label{cor:5.13-RO}
+Dacă orice \(R\)-modul ciclic singular este injectiv, atunci:
+\begin{enumerate}
+  \item orice \(R / \soc(R)\)-modul simplu este injectiv;
+  \item \(R / \soc(R)\) este noetherian.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(1) Fie \(S\) un \(R / \soc(R)\)-modul simplu.
+Cum \(S \cdot \soc(R) = 0\), din Lemma~5.11 avem că \(S\) este
+\(R\)-modul simplu singular şi deci \(S\) este \(R\)-modul simplu injectiv,
+de unde rezultă că \(S\) este \(R / \soc(R)\)-modul simplu injectiv.
+\end{proof}
 
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
