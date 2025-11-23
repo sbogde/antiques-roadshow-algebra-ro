@@ -2937,6 +2937,82 @@ Dacă orice \(R\)-modul ciclic singular este injectiv, atunci:
 Cum \(S \cdot \soc(R) = 0\), din Lemma~5.11 avem că \(S\) este
 \(R\)-modul simplu singular şi deci \(S\) este \(R\)-modul simplu injectiv,
 de unde rezultă că \(S\) este \(R / \soc(R)\)-modul simplu injectiv.
+
+(2) Fie \(E = \bigoplus_{i=1}^{\infty} S_i\) în \(\mathrm{Mod}\text{-}R/\soc(R)\), unde
+\(S_i\) este \(R/\soc(R)\)-modul simplu pentru orice \(i \geq 1\).
+Atunci \(E = \bigoplus_{i=1}^{\infty} S_i\) în \(\mathrm{Mod}\text{-}R\), cu
+\(S_i\) \(R\)-module simple singulare. Rezultă că \(E\) este \(R\)-modul singular.
+Din Corolarul~5.12 rezultă că \(E\) este \(R\)-modul injectiv şi deci
+\(E\) este \(R/\soc(R)\)-modul injectiv. Aplicând teorema Matlis–Bass,
+avem că \(R/\soc(R)\) este noetherian.
+\end{proof}
+
+\begin{definition}
+Un inel \(R\) se numeşte \emph{PCI-inel la dreapta} dacă orice \(R\)-modul
+drept care nu este izomorf cu \(R_R\) este injectiv.
+\end{definition}
+
+% \noindent\textbf{Corolarul 5.15 (Damiano).}
+\begin{corollary}[Damiano]
+Dacă \(R\) este PCI-inel la dreapta, atunci \(R\) este noetherian la dreapta.
+\end{corollary}
+
+\begin{proof}
+Din Corolarul~5.13 avem că \(R/\soc(R)\) este noetherian. Presupunem
+\(\soc(R) \neq 0\).
+Fie \(C\) un \(R/\soc(R)\)-modul ciclic. Atunci \(C\) este \(R\)-modul propriu
+ciclic, deoarece \(C \cdot \soc(R) = 0\), dar \(R \cdot \soc(R) = \soc(R) \neq 0\).
+Rezultă că \(C\) este \(R\)-modul injectiv şi deci \(R/\soc(R)\)-modul injectiv.
+Din teorema lui Osofsky (Corolarul~5.9) rezultă că \(R/\soc(R)\) este un inel
+semisimplu.
+
+Presupunem că \(\soc(R) \neq R\). Există \(n \geq 1\) şi submodule simple
+\(W_i \leq R/\soc(R)\), \(i = 1,\dots,n\), astfel încât
+\[
+  R/\soc(R) = W_1 \oplus W_2 \oplus \dots \oplus W_n.
+\]
+Fie \(\widehat{y} \in W_n\). Atunci
+\[
+  W_n \cong \widehat{y}\,R/\soc(R)
+         = \frac{yR + \soc(R)}{\soc(R)}
+         \cong \frac{yR}{yR \cap \soc(R)},
+\]
+şi deci \(yR/(yR \cap \soc(R))\) este simplu.
+
+Arătăm că \(\soc(yR)\) este de lungime finită. În caz contrar am putea scrie
+\[
+  \soc(yR) = S \oplus T \oplus U
+\]
+cu \(S,T,U\) de lungime infinită. Evident, \(yR/S\) este \(R\)-modul ciclic.
+Cum \(S\) nu este sumand direct al lui \(yR\), avem \(yR/S \not\cong R\).
+Rezultă că \(yR/S\) este injectiv.
+
+Cum \(T \oplus U \cong \soc(yR)/S \leq yR/S\), există un morfism injectiv
+\[
+  0 \longrightarrow T \oplus U \longrightarrow yR/S,
+\]
+şi deci putem presupune că \(E(T) \oplus E(U)\) este un submodul al lui \(yR/S\).
+Există \(K \leq yR/S\) astfel încât
+\[
+  yR/S = E(T) \oplus E(U) \oplus K.
+\]
+Atunci
+\[
+  \frac{yR}{\soc(yR)}
+    \cong \frac{yR/S}{(S \oplus T \oplus U)/S}
+    \cong \frac{E(T)}{T} \oplus \frac{E(U)}{U} \oplus K,
+\]
+contradicţie cu faptul că \(yR/\soc(yR)\) este simplu.
+
+Obţinem astfel că \(\soc(yR)\) este de lungime finită.
+Cum orice \(R\)-modul simplu este injectiv, \(\soc(yR)\) este \(R\)-modul injectiv
+şi deci sumand direct al lui \(yR\).
+Rezultă că există un modul simplu \(U\) astfel încât
+\[
+  yR = \soc(yR) \oplus U,
+\]
+şi deci \(y \in \soc(R)\), ceea ce arată că \(R = \soc(R)\), adică \(R\) este
+semisimplu.
 \end{proof}
 
 
