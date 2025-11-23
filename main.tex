@@ -3016,6 +3016,177 @@ semisimplu.
 \end{proof}
 
 
+\chapter{Inele PCQI}
+
+\begin{definition}\label{def:6.1}
+Fie \(M\) un \(R\)-modul drept. Spunem că \(M\) este \emph{propriu} dacă
+\(M \ncong R_R\).
+
+Un inel \(R\) se numeşte \emph{PCQI la dreapta} dacă orice
+\(R\)-modul drept propriu ciclic este quasi-injectiv.
+\end{definition}
+
+\begin{lemma}\label{lem:6.2}
+Fie \(R\) un inel PCQI la dreapta. Atunci orice \(R\)-modul drept ciclic
+are dimensiune coireductibilă finită.
+\end{lemma}
+
+\begin{proof}
+Fie \(X\) un \(R\)-modul drept ciclic.
+
+\medskip
+\noindent\textbf{Pasul 1.} Arătăm că \(X/E\) are dimensiune
+coireductibilă finită pentru orice \(E \ess X\).
+
+Fie \(E \ess X\). Demonstrăm că \(X/E\) satisface condiţiile teoremei
+Osofsky--Smith. Pentru aceasta considerăm \(Y/E\) un submodul ciclic al
+lui \(X/E\) şi \(Z/E \leq Y/E\). Atunci
+\[
+  (Y/E)/(Z/E) \cong Y/Z.
+\]
+Cum \(Z \ess Y\) (propoziţia~1.8), rezultă că \(Y/Z \neq R_R\) (în caz
+contrar \(Y/Z\) ar fi proiectiv şi deci \(Z\) ar fi sumand direct în
+\(Y\), contradicţie). Dar \(R\) este inel PCQI la dreapta, de unde
+\(Y/Z\) este quasi-injectiv şi deci, din propoziţia~5.4,
+\(Y/Z\) este CS-modul.
+
+Obţinem că orice submodul ciclic al lui \(X/E\) este complet CS. Din
+teorema Osofsky--Smith rezultă că \(X/E\) are dimensiune
+coireductibilă finită.
+
+\medskip
+\noindent\textbf{Pasul 2.} \(X/S\) are dimensiune coireductibilă finită,
+unde \(S = \soc(X)\).
+
+Fie \(T \leq X\) astfel încât, prin propoziţia~1.16,
+\((S \oplus T) \ess X\). Din pasul~1 al demonstraţiei rezultă că
+\(X/(S \oplus T)\) are dimensiune coireductibilă finită. Notăm
+\[
+  \overline{T} = (S \oplus T)/S.
+\]
+Atunci \((X/S)/\overline{T}\) are dimensiune coireductibilă finită.
+Cum \(T \cong \overline{T}\), rămâne de arătat că \(T\) are dimensiune
+coireductibilă finită.
+
+Presupunem că \(T\) nu are dimensiune coireductibilă finită. Atunci
+\(T\) conţine un submodul esenţial
+\[
+  V = \bigoplus_{i \geq 1} V_i,
+\]
+cu \(V_i \neq 0\) pentru orice \(i \geq 1\). Avem
+\(\soc(T) = S \cap T = 0\) şi deci \(\soc(V) = 0\). Rezultă că pentru
+orice \(i \geq 1\) există un submodul propriu nenul
+\(W_i \ess V_i\), \(W_i \neq V_i\) (altfel, dacă există un \(i \geq 1\)
+astfel încât \(V_i\) nu are submodule esenţiale proprii, am avea
+\(\soc(V_i) = V_i\), în contradicţie cu \(\soc(V) = 0\)).
+
+Notând
+\[
+  W = \bigoplus_{i \geq 1} W_i,
+\]
+obţinem din propoziţia~1.9 că \(W \ess V\) şi deci
+\((S + W) \ess (S + V)\). Cum \(V \ess T\), avem
+\((S + W) \ess (S + T) \ess X\) şi prin urmare \((S + W) \ess X\).
+Aplicând pasul~1 al demonstraţiei obţinem că \(X/(S \oplus W)\) are
+dimensiune coireductibilă finită.
+
+Pe de altă parte,
+\[
+  \bigoplus_{i \geq 1} V_i/W_i = V/W \leq (S \oplus V)/(S \oplus W) \leq X/(S \oplus W),
+\]
+ceea ce contrazice faptul că \(X/(S \oplus W)\) are dimensiune
+coireductibilă finită. Prin urmare, \(T\) are dimensiune
+coireductibilă finită.
+
+\medskip
+\noindent\textbf{Pasul 3.} \(S = \soc(X)\) este finit generat.
+
+Presupunem că \(S\) nu este finit generat. Atunci putem scrie
+\(S = H \oplus K\), unde \(H\) şi \(K\) nu sunt finit generate.
+Cum \(H\) nu poate fi sumand direct al lui \(X\), avem \(X/H \neq R_R\)
+(dacă \(X = H \oplus H'\), atunci \(H \cong X/H'\), iar cum \(X/H'\) este
+ciclic, obţinem o contradicţie) şi deci \(X/H\) este quasi-injectiv.
+Fie \(\overline{K} = (K \oplus H)/H\). Atunci
+\[
+  X/S \cong (X/H)/\overline{K},
+\]
+iar din pasul~2 rezultă că \((X/H)/\overline{K}\) are dimensiune
+coireductibilă finită. Cum \(\overline{K} \cong K\), iar \(K\) este o
+sumă directă infinită de module simple, rezultă că
+\((X/H)/\overline{K}\) nu are dimensiune coireductibilă finită
+(vezi lema~1 din \cite{DiHuWi}), contradicţie.
+
+Obţinem că \(S = \soc(X)\) este finit generat şi deci \(S\) are
+dimensiune coireductibilă finită.
+
+\medskip
+Din pasul~2 şi pasul~3 rezultă că \(X\) are dimensiune coireductibilă
+finită.
+\end{proof}
+
+\begin{theorem}\label{thm:6.3}
+Fie \(R\) un inel prim, PCQI la dreapta. Atunci \(R\) este artinian la
+dreapta sau domeniu Ore la dreapta.
+\end{theorem}
+
+\begin{proof}
+Arătăm mai întâi că \(R\) este nesingular la dreapta. Presupunem că
+\(Z(R_R) \neq 0\). Din lema precedentă \(R\) are dimensiune
+coireductibilă finită şi deci există un submodul coireductibil
+\(U \leq R_R\). Atunci
+\[
+  V := U \cap Z(R_R) \neq 0
+\]
+şi \(V^2 \neq 0\), deoarece \(R\) este inel prim. Fie \(a \in V\) astfel
+încât \(aV \neq 0\). Cum \(V\) este coireductibil, există
+\(x \in V \cap \ann_r(a) \setminus \{0\}\). Dar \(xR \neq R_R\) şi deci
+\(xR\) este quasi-injectiv. Fie \(E(V)\) envelopa injectivă a lui \(V\).
+Atunci \(E(V) = E(xR)\), deoarece \(xR \ess V\) şi astfel \(xR\) este
+submodul deplin invariant al lui \(E(V)\). În particular,
+\(V(xR) \subseteq xR\). Rezultă că
+\[
+  (aV)(xR) = a(VxR) \subseteq axR = 0.
+\]
+Dar \(aV \neq 0\) şi \(xR \neq 0\), în contradicţie cu faptul că
+\(R\) este prim.
+
+Obţinem că \(Z(R_R) = 0\). Din lema precedentă \(R\) are dimensiune
+coireductibilă finită. Cum \(R\) este nesingular, rezultă că \(R\) este
+inel Goldie la dreapta. Dacă \(R_R\) este coireductibil, atunci
+\(R\) este fie inel cu diviziune, fie domeniu Ore la dreapta, şi
+teorema este demonstrată în acest caz.
+
+Presupunem în continuare că \(R_R\) nu este coireductibil şi considerăm
+\[
+  U_1 \oplus U_2 \oplus \cdots \oplus U_m = U \qquad (m \geq 2)
+\]
+o sumă directă de submodule coireductibile astfel încât \(U \ess R_R\).
+Fie \(a_1 \in U_1 \setminus \{0\}\). Evident \(a_1 R \neq R_R\) şi deci
+\(a_1 R\) este quasi-injectiv. Cum \(R\) este inel prim, Goldie la
+dreapta, pentru orice \(i = 2,\dots,m\) există
+\(a_i \in U_i\) astfel încât \(a_i R \cong a_1 R\). Atunci
+\[
+  A = a_1 R \oplus a_2 R \oplus \cdots \oplus a_m R
+\]
+este quasi-injectiv. Observăm că \(A \ess U\) şi deci \(A \ess R_R\).
+Din Propoziţia~4.14, \(A\) conţine un element regulat \(c \in R\).
+Deoarece \(cR \leq A\), rezultă că \(A\) este \(cR\)-injectiv şi, cum
+\(cR \cong R_R\), obţinem că \(A\) este injectiv.
+
+Astfel şirul exact
+\[
+  0 \longrightarrow A \longrightarrow R \longrightarrow R/A \longrightarrow 0
+\]
+este scindat, iar din \(A \ess R_R\) rezultă că \(A = R\). Prin urmare
+\(R\) este self-injectiv la dreapta. Un inel prim, Goldie la dreapta şi
+self-injectiv la dreapta este simplu artinian; deci \(R\) este artinian
+la dreapta.
+
+În concluzie, \(R\) este fie domeniu Ore la dreapta, fie inel simplu
+artinian, deci în orice caz artinian la dreapta sau domeniu Ore la
+dreapta.
+\end{proof}
+
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
 % Exemplu:
 % \chapter{Titlul capitolului 1}
