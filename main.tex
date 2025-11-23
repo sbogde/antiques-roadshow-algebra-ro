@@ -2672,8 +2672,169 @@ P_n \cap S
   = V \cap \left( \bigoplus_{i=1}^n S_i \right)
   = \bigoplus_{i=1}^n V_i,
 \]
-şi deci \(P_n \cap S\) este....
+şi deci \(P_n \cap S\) este submodul finit generat al lui \(S\).
+
+
+Rezultă că \(P_n \cap S\) este sumand direct al lui \(X\).
+Dar \(S \ess X_R\) şi deci
+\[
+P_n := \left(\bigoplus_{i=1}^n D_i\right) \cap L \leq S
+\quad \text{pentru orice } n \geq 1,
+\]
+ceea ce arată că \(D \cap L \leq S\).
+
+Atunci, folosind legea distributivităţii modulare, avem
+\[
+\frac{D}{S} \cap \frac{L+S}{S}
+   = \frac{D \cap (L+S)}{S}
+   = \frac{S + D \cap L}{S}
+   = 0.
+\]
+Cum
+\(\dfrac{D}{S} \ess \dfrac{E+S}{S}\),
+rezultă că \(L+S = S\), adică \(L \leq S\).
+Obţinem că \(L\) este semisimplu şi, cum \(V \ess L\),
+rezultă \(V = L\), contradicţie.
+Deci \(X/S\) nu este CS-modul.
 \end{proof}
+
+% 5.6 Teoremă (Osofsky–Smith) – enunț și începutul demonstrației (RO)
+
+\begin{theorem}[Teorema Osofsky–Smith]\label{thm:Osofsky-Smith}
+Fie \(R\) un inel şi \(M\) un \(R\)-modul ciclic astfel încât
+\(mR\) este complet CS pentru orice \(m \in M\).
+Atunci \(M\) este o sumă directă finită de module coireductibile.
+\end{theorem}
+
+\begin{proof}[Demonstratie]
+Orice CS-modul indecompozabil este coireductibil şi deci este suficient
+să arătăm că \(M\) este o sumă directă finită de module indecompozabile.
+
+Presupunem că \(M\) nu admite o astfel de scriere.
+Atunci există
+\[
+M = A_1 \oplus B_1,
+\quad
+0 \neq A_1, B_1 \leq M,
+\]
+unde \(B_1\) nu este o sumă directă de module indecompozabile.
+Rezultă că putem scrie
+\[
+B_1 = A_2 \oplus B_2,
+\quad
+0 \neq A_2, B_2 \leq B_1,
+\]
+unde \(B_2\) nu este sumă directă de module indecompozabile.
+
+Repetând procedeul, obţinem
+\[
+0 \neq A_i, B_i \leq M \quad (i \geq 1)
+\]
+cu
+\[
+M = A_1 \oplus \cdots \oplus A_n \oplus B_n
+\quad (n \geq 1)
+\]
+şi
+\[
+A_{n+1} \oplus A_{n+2} \oplus \cdots \leq B_n
+\quad (n \geq 1).
+\]
+
+Cum fiecare \(A_i\) este ciclic, alegem pentru fiecare \(i \geq 1\)
+un submodul maximal \(C_i \leq A_i\).
+Notăm
+\[
+C := \bigoplus_{i \geq 1} C_i,
+\qquad
+P := M/C,
+\qquad
+S := \bigoplus_{i \geq 1} \frac{A_i}{C_i}.
+\]
+Atunci \(S\) este un submodul semisimplu, numărabil generat, al lui \(P\).
+
+Pentru orice \(n \geq 1\), aplicând legea distributivităţii modulare, avem
+\[
+(A_1 \oplus \cdots \oplus A_n \oplus C)
+  \cap (B_n + C)
+ = C + (A_1 \oplus \cdots \oplus A_n) \cap B_n
+ = C + \bigoplus_{k \geq n+1} C_k
+ = C.
+\]
+Prin urmare
+\[
+P = \frac{M}{C}
+  = \frac{A_1 \oplus \cdots \oplus A_n \oplus C}{C}
+    \oplus \frac{B_n + C}{C}
+  \quad \text{pentru orice } n \geq 1.
+\]
+
+Dacă \(T \leq S\) este un submodul finit generat, există un
+\(n \geq 1\) astfel încât
+\[
+T = \frac{A_1 \oplus \cdots \oplus A_n + C}{C},
+\]
+de unde rezultă că orice submodul finit generat al lui \(S\)
+este sumand direct al lui \(P\).
+
+Fie acum \(X\) un submodul al lui \(P\) astfel încât
+\(S \ess X \leq P\), \(X\) este CS-modul şi
+orice submodul finit generat al lui \(S\) este sumand direct în \(X\).
+Dacă \(\operatorname{soc}(X)\) este soclul lui \(X\),
+atunci \(S \ess \operatorname{soc}(X)\) şi, cum \(S \ess X\),
+obţinem \(S = \operatorname{soc}(X)\).
+
+Rezultă că sunt satisfăcute ipotezele lemei precedente
+şi deci \(X/S\) nu este CS-modul, contradicţie.
+% Prin urmare \(M\) este o sumă directă finită de module indecompozabile, deci de module coireductibile.
+\end{proof}
+
+% 5.7 Corolar – enunț și demonstrație (RO)
+\begin{corollary}
+Fie \(R\) un inel astfel încât orice \(R\)-modul ciclic este CS-modul.
+Atunci orice \(R\)-modul ciclic este o sumă directă finită de module
+coireductibile.
+\end{corollary}
+
+\begin{proof}[Demonstratie]
+Fie \(M_R\) un modul ciclic, \(m \in M\) şi \(N \leq mR\).
+Atunci factorul \(mR/N\) este un modul ciclic şi, prin ipoteză,
+un CS-modul.
+Aplicând Teorema Osofsky--Smith obţinem că
+\(mR\) (şi deci \(M\)) este o sumă directă finită de module
+coireductibile.
+\end{proof}
+
+% 5.8 Corolar – enunț și demonstrație (RO)
+\begin{corollary}[Corolar 5.8]
+Dacă \(N\) este un \(R\)-modul astfel încât
+orice modul factor al oricărui submodul ciclic al lui \(N\) este injectiv,
+atunci \(N\) este semisimplu.
+\end{corollary}
+
+\begin{proof}[Demonstratie]
+Fie \(0 \neq x \in N\) şi \(C = xR \leq N\).
+Prin ipoteză, orice modul factor al unui submodul ciclic al lui \(C\)
+este injectiv, deci orice submodul ciclic al lui \(C\) este complet CS.
+Din Teorema Osofsky--Smith rezultă că
+\[
+C = xR = \bigoplus_{i=1}^n U_i
+\]
+pentru anumite submodule coireductibile \(U_i\).
+
+Cum
+\[
+U_i \cong C \big/ \bigoplus_{j \neq i} U_j,
+\]
+rezultă că fiecare \(U_i\) este injectiv şi, prin urmare,
+\(U_i\) este indecompozabil pentru tot \(i = 1,\dots,n\)
+(vezi propoziţia~3.1).
+% Astfel \(C\) este sumă directă finită de module injective indecompozabile, deci semisimplu. Cum \(x\) a fost arbitrar, rezultă că \(N\) este semisimplu.
+
+
+\end{proof}
+
+
 
 
 % Capitolele următoare vor fi completate pe măsură ce avansăm.
